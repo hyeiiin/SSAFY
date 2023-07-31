@@ -21,7 +21,7 @@
 2. 알고리즘 소스코드에 반드시 라인별 주석 달기!!!(기록도 실력!!)
 
 3. "수업자료>03.Algorithm" GITLAB 프로젝트에 업로드 제출
-https://lab.ssafy.com/s09/c04/gwangju04.git
+https://lab.ssafy.com/s10/c04/gwangju04.git
 
 4. "문제사이트\문제번호폴더>" 에 알고리즘 소스코드 업로드 
 - 예시: SWEA\1289 > Solution_1289_홍길동.java
