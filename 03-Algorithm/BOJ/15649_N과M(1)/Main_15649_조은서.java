@@ -19,12 +19,12 @@ public class Main_15649_조은서 {
 		isSelected = new boolean[n]; // 중복 없이 고르기 위해 선택된 숫자인지 기록하기 위한 배열
 		numbers = new int[m]; // 수열을 저장하기 위한 배열
 		
-		perm(0, isSelected, numbers);
+		perm(0);
 		
 	}
 	
 	
-	public static void perm(int cnt, boolean[] isSelected, int[] numbers ) {	
+	public static void perm(int cnt) {	
 		if (cnt == m) {
 			for(int j=0; j<m; j++) {
 				System.out.print(numbers[j]+1 + " "); // 1부터 출력하기 위해 numbers[] + 1
@@ -39,7 +39,7 @@ public class Main_15649_조은서 {
 				}
 				numbers[cnt] = i; 
 				isSelected[i] = true;
-				perm(cnt+1, isSelected, numbers);
+				perm(cnt+1);
 
 				isSelected[i] = false;
 
