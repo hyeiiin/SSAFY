@@ -6,7 +6,6 @@ public class Solution_2805_김수린 {
 	static int T, N;
 	static int[][] arr;
 	static Scanner sc = new Scanner(System.in);
-	static int[]dy = {-1, 1};
 	static StringBuilder sb = new StringBuilder();
 	
 	public static void init() {
