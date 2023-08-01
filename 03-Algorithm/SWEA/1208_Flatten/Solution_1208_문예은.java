@@ -20,7 +20,7 @@ public class Solution_1208_문예은 {
 			Arrays.sort(boxHeight); // 상자높이 오름차순 정렬
 			diff = boxHeight[99]-boxHeight[0]; // 초기 상태의 최고점과 최저점 높이차
 			for(int c = 0; c < dumpCount; c++) { // 주어진 덤프 횟수만큼 반복
-				if(diff == 1 || diff == 0) break;
+				if(diff == 1 || diff == 0) break;  // 높이차가 1이나 0이되면 더이상의 덤프가 무의미하므로 종료
 				else {
 					boxHeight[0] += 1; // 가장 낮은 상자에 하나 쌓기
 					boxHeight[99] -= 1; // 가장 높은 상자에 하나 빼기
