@@ -85,3 +85,12 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 
 1. 백준_17478_재귀함수가 뭔가요? (Main_17478_이름.java)
 2. SWEA_1289_원재의 메모리 복구하기(Solution_1289_이름.java)
+
+-------------
+#### 2023/08/01 algo_day2
+-------------
+
+1. 백준 15649 N과 M(1) (Main_15649_이름.java)
+2. SWEA 1208 Flatten (Solution_1208_이름.java)
+3. SWEA 1210 Ladder1 (Solution_1210_이름.java)
+4. SWEA 2805 농작물 수확하기 (Solution_2805_이름.java)
