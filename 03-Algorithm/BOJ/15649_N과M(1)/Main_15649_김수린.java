@@ -7,11 +7,9 @@ public class Main_15649_김수린 {
 	static int N, M;
 	static int []num;
 	static boolean []isSelected;
-	static int tc;
 	
 	public static void recursionPermutation(int cnt) {
-		if (cnt == N) {
-//			System.out.println(Arrays.toString(num));
+		if (cnt == M) {
 			for(int i : num) {
 				System.out.print(i != 0 ? i + " " : "");
 			}
@@ -35,8 +33,8 @@ public class Main_15649_김수린 {
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		num = new int[N];
+		num = new int[M];
 		isSelected = new boolean[N];
-		recursionPermutation(N - M);
+		recursionPermutation(0);
 	}
 }
