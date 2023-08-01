@@ -1,5 +1,3 @@
-package 백준;
-
 import java.util.*;
 import java.io.*;
 
