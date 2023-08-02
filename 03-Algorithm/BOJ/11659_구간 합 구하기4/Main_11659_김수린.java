@@ -11,7 +11,7 @@ public class Main_11659_김수린 {
 	static int[] arr, addArr;
 	
 	public static void accumulateSum() {
-		addArr[0] = 0;
+		addArr = new int[N + 1];
 		for(int i = 1; i <= arr.length; i++) {
 			addArr[i] = addArr[i - 1] + arr[i - 1];
 		}
@@ -24,7 +24,6 @@ public class Main_11659_김수린 {
 		
 		st = new StringTokenizer(br.readLine());
 		arr = new int[N];
-		addArr = new int[N + 1];
 		int cnt = 0;
 		while(st.hasMoreTokens()) {
 			arr[cnt++] = Integer.parseInt(st.nextToken());
