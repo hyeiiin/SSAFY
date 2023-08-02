@@ -1,10 +1,8 @@
-package ssafy.Swea;
-
 import java.io.*;
 import java.util.*;
 
 // 2805. 농작물 수확하기
-public class _2805_Boj {
+public class _2805_Swea {
 
 	private static int[][] arr;
 	private static int middle;
