@@ -53,11 +53,10 @@ public class Solution_2805_농작물수확하기 {
 	
 	private static int getBenefit2() {
 		int benefit=0;
-		int x=0, y=0;
 		for (int i = 0; i < N; i++) {
 			int gap=Math.abs(i-center);
 			for (int j = gap; j < N-gap; j++) {
-				benefit+=map[i+x][j+y];
+				benefit+=map[i][j];
 				//System.out.printf("(%d,%d)",i,j);
 			}
 			//System.out.println();
