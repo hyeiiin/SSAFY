@@ -94,3 +94,13 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 2. SWEA 1208 Flatten (Solution_1208_이름.java)
 3. SWEA 1210 Ladder1 (Solution_1210_이름.java)
 4. SWEA 2805 농작물 수확하기 (Solution_2805_이름.java)
+
+-------------
+#### 2023/08/02 algo_day3
+-------------
+
+1. 백준 15650 N과 M(2) (Main_15650_이름.java)
+2. 백준 11659 구간 합 구하기 4 (Main_11659_이름.java)
+3. 백준 11660 구간 합 구하기 5 (Main_11660_이름.java)
+
+
