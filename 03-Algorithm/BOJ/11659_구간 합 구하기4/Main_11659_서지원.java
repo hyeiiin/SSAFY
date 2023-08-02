@@ -26,16 +26,16 @@ public class Main_11659_서지원 {
 		
 		// 누적합
 		int[] sum = new int[n + 1];
-		for (int i = n - 1; i >= 0; i--) {
-			sum[i] = sum[i + 1] + num[i];
+		for (int i = 1; i <= n; i++) {
+			sum[i] = sum[i - 1] + num[i - 1];
 		}
-		
+
 		StringBuilder sb = new StringBuilder();
 		for (int x = 0; x < m; x++) {
 			st = new StringTokenizer(br.readLine());
 			int i = Integer.parseInt(st.nextToken());
 			int j = Integer.parseInt(st.nextToken());
-			int result = sum[i - 1] - sum[j];
+			int result = sum[j] - sum[i - 1];
 			sb.append(result).append("\n");
 		}
 		System.out.println(sb.toString());
