@@ -33,18 +33,8 @@ public class Main_15650_김현영 {
 		
 		for (int i = 1; i <= n-m+1; i++) {
 			result.clear();
-			func(i,1);
-//			System.out.println(func(i, 1));
-		}
-
-		
-		
-
-		
-		
-
-		
-		
+			func(i,1); 
+		} 
 		
 	}
 }
