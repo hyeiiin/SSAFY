@@ -39,7 +39,7 @@ public class Solution {
 				nx = x + dx[direction];
 				ny = y + dy[direction];
 				
-                // 정해진 방향으로 밀기
+                // 정해진 방향으로, 넘버링 안 한 곳까지 밀기
 				if (0 <= nx && nx < N && 0 <= ny && ny < N && lst[nx][ny] == 0) {
 					lst[nx][ny] = cnt++;
 					x = nx;
