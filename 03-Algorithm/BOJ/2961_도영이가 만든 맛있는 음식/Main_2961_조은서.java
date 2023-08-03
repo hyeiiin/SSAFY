@@ -1,3 +1,5 @@
+package algo_0803;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,8 +33,6 @@ public class Main_2961_조은서 {
 	
 	private static void genSubset(int cnt) {
 		if(n == cnt) {
-			
-			subSets = new int[n];
 			
 			int tCnt= 0;
 			int sour = 1;
