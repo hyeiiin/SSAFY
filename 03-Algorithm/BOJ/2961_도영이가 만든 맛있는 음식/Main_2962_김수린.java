@@ -45,5 +45,6 @@ public class Main_2962_김수린 {
 		}
 
 		recur(0);
+		System.out.println(min);
 	}
 }
