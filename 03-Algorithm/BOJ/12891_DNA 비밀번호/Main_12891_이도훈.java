@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 public class Main_12891_이도훈 {
 
+    // 각 단어의 개수 체크 배열
     static int[] dna;
 
     public static void main(String[] args) throws IOException {
@@ -23,11 +24,11 @@ public class Main_12891_이도훈 {
             dna[i] = Integer.parseInt(st.nextToken());
         }
 
-
-        // 다 포함되는 범위 찾기
+        // 투포인터를 이용해서 범위 지정 
         int left = 0;
         int right = P-1;
 
+        // 범위 지정한만큼 단어 개수 변경
         for (int i = 0; i < P; i++) {
             char cur = input.charAt(i);
 
@@ -53,6 +54,7 @@ public class Main_12891_이도훈 {
                 cnt++;
             }
 
+            // 왼쪽 증가
             switch (input.charAt(left++)) {
                 case 'A':
                     dna[0]++;
@@ -91,6 +93,7 @@ public class Main_12891_이도훈 {
 
     }
 
+    // dna배열 돌면서 최소 개수 이상인지 확인
     public static boolean isPossible() {
         for (int i = 0; i < 4; i++) {
             if (dna[i] > 0) {
