@@ -3,7 +3,7 @@ package BOJ;
 import java.io.*;
 import java.util.*;
 
-public class Main_2962_김수린 {
+public class Main_2961_김수린 {
 	static int N, min = Integer.MAX_VALUE;
 	static boolean[] visit;
 	static int[][] input;
