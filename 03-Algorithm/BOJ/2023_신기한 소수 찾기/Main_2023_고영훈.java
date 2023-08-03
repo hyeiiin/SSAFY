@@ -1,43 +1,38 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main_2023_고영훈 {
-	static BufferedWriter bw;
+	static StringBuilder sb;
 	static int N;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		sb = new StringBuilder();
 		N = Integer.parseInt(st.nextToken());
-		bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		for (int base : new int[] { 2, 3, 5, 7 }) {
-			printAmazingPrimes(1, base);
+			amazingPrimes(1, base);
 		}
-		bw.flush();
+		System.out.println(sb);
 	}
 
-	private static void printAmazingPrimes(final int digit, final int base) throws Exception {
+	private static void amazingPrimes(final int digit, final int base) {
 		if (digit == N) {
-			bw.write(Integer.toString(base));
-			bw.write("\n");
+			sb.append(base);
+			sb.append("\n");
 			return;
 		}
 		int newBase = base * 10 + 1;
 		for (int i = 0; i < 5; i++) {
 			if (isPrime(newBase)) {
-				printAmazingPrimes(digit + 1, newBase);
+				amazingPrimes(digit + 1, newBase);
 			}
 			newBase += 2;
 		}
 	}
 
 	private static boolean isPrime(final int n) {
-		if (n == 2) {
-			return true;
-		}
 		if ((n & 1) == 0) {
 			return false;
 		}
