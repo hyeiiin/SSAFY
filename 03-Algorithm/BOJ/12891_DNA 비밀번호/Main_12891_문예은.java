@@ -38,10 +38,6 @@ public class Main_12891_문예은 {
 			int findNum = count.get(dna[i]); // 문자의 현재까지의 개수 가져오기
 			count.replace(dna[i], findNum+1); // 들어온 문자 키의 개수 증가시키기
 		}
-//		Collection<Integer> values = count.values(); // 맵 value 값 출력해보기
-//		Collection<Character> keys = count.keySet();
-//		System.out.println(keys);
-//		System.out.println(values);
 		// 슬라이딩 윈도우가 비번 조건 만족하는지
 		int result = 0;
 		int win_left = 0; // 슬라이딩 윈도우의 왼쪽 인덱스값
