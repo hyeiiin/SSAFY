@@ -5,7 +5,7 @@ import java.util.*;
 
 
 
-class Solution
+class Main_12891_김한주
 {
 	//입력 변수 정의 
 	static BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
