@@ -30,18 +30,36 @@ public class Solution_1225_박정인 {
 				q.offer(Integer.parseInt(st.nextToken()));
 			}
 			
-			int value = 1;
-			while(value != 0) {
-				for (int i = 1; i <= 5; i++) {
-					value = q.poll();
-					value -= i;
-					if (value < 0) {
-						value = 0;
-					}
-					q.offer(value);
-					if (value == 0) break;
+			int cycleCnt = 1;
+			while (true) {
+				int now = q.poll();
+				now = now - cycleCnt < 0 ? 0 : now - cycleCnt;
+				q.offer(now);
+				if (now == 0) {					
+					break;
 				}
+				
+				if (cycleCnt == 5) {
+					cycleCnt = 0;
+				}
+				
+				
+				cycleCnt++;
 			}
+			
+			
+//			int value = 1;
+//			while(value != 0) {
+//				for (int i = 1; i <= 5; i++) {
+//					value = q.poll();
+//					value -= i;
+//					if (value < 0) {
+//						value = 0;
+//					}
+//					q.offer(value);
+//					if (value == 0) break;
+//				}
+//			}
 			
 			while (!q.isEmpty()) {
 				sb.append(q.poll()).append(" ");
