@@ -115,9 +115,9 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 #### 2023/08/04 algo_day5
 -------------
 
-SWEA 1218 괄호 짝짓기
-SWEA 1225 암호생성기
-+ 스택, 큐 슬라이드 예제도 직접 구현해보기
+SWEA 1218 괄호 짝짓기 (Solution_1218_이름.java)
+SWEA 1225 암호생성기 (Solution_1225_이름.java)
++ 라이브 교재의 스택, 큐 슬라이드 예제도 직접 구현해보기
 
 
 
