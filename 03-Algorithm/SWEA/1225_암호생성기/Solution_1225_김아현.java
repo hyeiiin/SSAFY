@@ -1,9 +1,7 @@
-package ssafy.Swea;
-
 import java.io.*;
 import java.util.*;
 
-public class _1225_Swea {
+public class Solution_1225_김아현 {
 
 	static int[] numArr;
 	static int target;
