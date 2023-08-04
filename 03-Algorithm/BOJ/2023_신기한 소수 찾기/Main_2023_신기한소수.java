@@ -21,7 +21,7 @@ public class Main_2023_신기한소수 {
 		
 		N = Integer.parseInt(st.nextToken());
 		
-		//1의 자리에 올 수 있는 소수는 2,3,5,7뿐
+		//앞의 자리에 올 수 있는 소수는 2,3,5,7뿐
 		interPrime(1, 2);
 		interPrime(1, 3);
 		interPrime(1, 5);
