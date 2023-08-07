@@ -70,7 +70,7 @@ public class Solution_1228_최지웅 {
 			}
 		}
 
-		System.setIn(new FileInputStream("input.txt"));
+//		System.setIn(new FileInputStream("input.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int N;
