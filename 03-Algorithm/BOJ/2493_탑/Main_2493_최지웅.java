@@ -11,7 +11,7 @@ public class Main_2493_최지웅 {
 
 	public static void main(String[] args) throws Exception {
 
-		System.setIn(new FileInputStream("input.txt"));
+//		System.setIn(new FileInputStream("input.txt"));
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
