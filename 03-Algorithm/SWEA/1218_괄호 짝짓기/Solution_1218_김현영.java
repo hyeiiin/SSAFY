@@ -31,7 +31,7 @@ public class Solution_1218_김현영 {
 				if (pair.get(sb.charAt(i)) % 2 == 0) {
 					bracket.add(sb.charAt(i));
 				}
-				// 큐에서 빼기 : 해시맵에서 value가 짝수라면 닫는 괄호
+				// 큐에서 빼기 : 해시맵에서 value가 홀수라면 닫는 괄호
 				else  {
 					//현재닫는괄호와 큐의 last가 같은 종류라면(value를 2로나눈 몫이 같다면) last poll
 					if (pair.get(bracket.peekLast())/2 == pair.get(sb.charAt(i))/2 ) {
