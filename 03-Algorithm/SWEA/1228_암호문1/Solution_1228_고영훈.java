@@ -21,13 +21,11 @@ public class Solution_1228_고영훈 {
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < K; i++) {
 			st.nextToken();
-			final int x = Integer.parseInt(st.nextToken());
+			int x = Integer.parseInt(st.nextToken());
 			final int y = Integer.parseInt(st.nextToken());
-			final List<Integer> newList = new ArrayList<>();
 			for (int j = 0; j < y; j++) {
-				newList.add(Integer.parseInt(st.nextToken()));
+				list.add(x++, Integer.parseInt(st.nextToken()));
 			}
-			list.addAll(x, newList);
 		}
 		for (int i = 0; i < 10; i++) {
 			sb.append(" ").append(list.get(i));
