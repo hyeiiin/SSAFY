@@ -126,3 +126,8 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 2. SWEA 1228 암호문1 (Solution_1228_이름.java)
 3. 백준 1158 요세푸스 문제 (Main_1158_이름.java)
 
+-------------
+#### 2023/08/08 algo_day7
+-------------
+1. SWEA 1233 사칙연산 유효성 검사 (Solution_1233_이름.java)
+2. 백준 16926 배열 돌리기1 (Main_16926_이름.java)
