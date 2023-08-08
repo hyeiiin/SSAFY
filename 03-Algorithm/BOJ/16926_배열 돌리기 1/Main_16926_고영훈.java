@@ -7,8 +7,7 @@ public class Main_16926_고영훈 {
 	static int M;
 	static int START;
 
-	private static int[][] rotate(final int[][] mat) {
-		final int[][] newMat = new int[N][M];
+	private static void rotate(final int[][] mat, final int[][] newMat) {
 		for (int start = 0; start < START; start++) {
 			final int subN = N - start;
 			final int subM = M - start;
@@ -34,7 +33,6 @@ public class Main_16926_고영훈 {
 				newMat[Y][x - 1] = mat[Y][x];
 			}
 		}
-		return newMat;
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -47,6 +45,7 @@ public class Main_16926_고영훈 {
 		final int R = Integer.parseInt(st.nextToken());
 
 		int[][] mat = new int[N][M];
+		int[][] newMat = new int[N][M];
 		for (int i = 0; i < N; i++) {
 			final int[] row = mat[i];
 			st = new StringTokenizer(br.readLine());
@@ -55,7 +54,10 @@ public class Main_16926_고영훈 {
 			}
 		}
 		for (int r = 0; r < R; r++) {
-			mat = rotate(mat);
+			rotate(mat, newMat);
+			int[][] temp = mat;
+			mat = newMat;
+			newMat = temp;
 		}
 		for (final int[] row : mat) {
 			for (final int x : row) {
