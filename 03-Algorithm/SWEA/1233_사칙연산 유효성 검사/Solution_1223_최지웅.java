@@ -75,7 +75,7 @@ public class Solution_1223_최지웅 {
 
 	public static void main(String[] args) throws Exception {
 
-		System.setIn(new FileInputStream("demo.txt"));
+//		System.setIn(new FileInputStream("demo.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		StringBuilder sb = new StringBuilder();
