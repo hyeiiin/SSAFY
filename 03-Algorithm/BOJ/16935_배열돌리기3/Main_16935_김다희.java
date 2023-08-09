@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Start {
+public class Main {
 	private static String[][] map,mapTmp;
 	private static String[][] mapTmps1,mapTmps2,mapTmps3,mapTmps4;
 	private static int n,m;
