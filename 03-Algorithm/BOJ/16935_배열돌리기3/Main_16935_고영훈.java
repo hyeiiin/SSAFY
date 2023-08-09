@@ -64,6 +64,7 @@ public class Main_16935_고영훈 {
 			for (int i = 0; i < N; i++) {
 				q.offer(mat[i].clone());
 			}
+			// swap N and M
 			swapNM();
 			// pollLast -> col
 			for (int j = 0; j < M; j++) {
@@ -78,6 +79,7 @@ public class Main_16935_고영훈 {
 			for (int i = 0; i < N; i++) {
 				q.offer(mat[i].clone());
 			}
+			// swap N and M
 			swapNM();
 			// poll -> col -> reverse
 			for (int j = 0; j < M; j++) {
@@ -89,29 +91,14 @@ public class Main_16935_고영훈 {
 			break;
 		case 5:
 		case 6: {
-			final int subN = N / 2;
-			final int subM = M / 2;
-			final Range[] from1234 = {
-				new Range(0, subN, 0, subM),
-				new Range(0, subN, subM, M),
-				new Range(subN, N, subM, M),
-				new Range(subN, N, 0, subM),
-			};
-			final Range[] to2341 = {
-				new Range(0, subN, subM, M),
-				new Range(subN, N, subM, M),
-				new Range(subN, N, 0, subM),
-				new Range(0, subN, 0, subM),
-			};
-			final Range[] to4123 = {
-				new Range(subN, N, 0, subM),
-				new Range(0, subN, 0, subM),
-				new Range(0, subN, subM, M),
-				new Range(subN, N, subM, M),
-			};
-			final Range[] to = opcode == 5 ? to2341 : to4123;
+			final Range r1 = new Range(0, N / 2, 0, M / 2);
+			final Range r2 = new Range(0, N / 2, M / 2, M);
+			final Range r3 = new Range(N / 2, N, M / 2, M);
+			final Range r4 = new Range(N / 2, N, 0, M / 2);
+			final Range[] from = { r1, r2, r3, r4 };
+			final Range[] to = opcode == 5 ? new Range[] { r2, r3, r4, r1 } : new Range[] { r4, r1, r2, r3 };
 			// offer <- subRow
-			for (final Range r : from1234) {
+			for (final Range r : from) {
 				for (int i = r.startN; i < r.endN; i++) {
 					q.offer(Arrays.copyOfRange(mat[i], r.startM, r.endM));
 				}
