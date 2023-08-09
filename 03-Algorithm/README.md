@@ -135,6 +135,6 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 -------------
 #### 2023/08/09 algo_day8
 -------------
-1. SWEA 1862 정사각형 방 (Solution_1862_이름.java)
+1. SWEA 1861 정사각형 방 (Solution_1861_이름.java)
 2. 백준 11286 절대값 힙 (Main_11286_이름.java)
 3. 백준 16935 배열 돌리기 3 (Main_16935_이름.java) 
