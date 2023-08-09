@@ -5,8 +5,6 @@ import java.util.*;
 
 public class Main {
     static int N, M, R;
-    static int[] dx = {0, 1, 0, -1}; //오른쪽 -> 아래 -> 왼쪽 -> 위
-    static int[] dy = {1, 0, -1, 0};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -155,20 +153,20 @@ public class Main {
         int[][] tempArr = new int[map.length][map[0].length];
 
         //1->4
-        for (int i = 0; i < N/2; i++) { //3
+        for (int i = 0; i < N / 2; i++) { //3
             for (int j = 0; j < halfM; j++) {
                 tempArr[i + halfN][j] = map[i][j];
             }
         }
         //2->1
         for (int i = 0; i < N / 2; i++) {
-            for (int j = 0; j < M/2; j++) {
+            for (int j = 0; j < M / 2; j++) {
                 tempArr[i][j] = map[i][j + halfM];
             }
 
         }
         //3->2
-        for (int i = 0; i < N/2; i++) {
+        for (int i = 0; i < N / 2; i++) {
             for (int j = halfM; j < M; j++) {
                 tempArr[i][j] = map[i + halfN][j];
             }
