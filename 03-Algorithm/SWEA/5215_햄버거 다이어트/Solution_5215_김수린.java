@@ -26,8 +26,11 @@ public class Solution_5215_김수린 {
 
 		// 부분 집합
 		// 지금 재료 사용할래!
+		// start(index)를 하나씩 늘려서 다음 재료로 가기
+		// 현재 재료를 사용하기 때문에 현재 재료의 정보를 더해서 넘겨줌
 		combination(start + 1, grade + arr.get(start).grade, calorie + arr.get(start).calorie);
 		// 지금 재료 사용하지 않을래!
+		// 현재 재료를 사용하지 않기 때문에 현재 재료의 정보를 더 하지 않는다.
 		combination(start + 1, grade, calorie);		
 	}
 	
