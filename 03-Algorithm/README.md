@@ -138,3 +138,11 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 1. SWEA 1861 정사각형 방 (Solution_1861_이름.java)
 2. 백준 11286 절대값 힙 (Main_11286_이름.java)
 3. 백준 16935 배열 돌리기 3 (Main_16935_이름.java) 
+
+-------------
+#### 2023/08/10 algo_day9
+-------------
+
+1. SWEA 5215 햄버거 다이어트 (Solution_5215_이름.java)
+2. SWEA 4012 요리사 (Solution_4012_이름.java)
+3. SWEA 6808 규영이와 인영이의 카드게임 (Solution_6808_이름.java)
