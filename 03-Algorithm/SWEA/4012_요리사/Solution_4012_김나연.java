@@ -14,6 +14,7 @@ public class Solution_4012_김나연 {
 			int total2=0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
+					if(i==j) continue;
 					if(isSelected[i]==1&&isSelected[j]==1) total+=s[i][j];
 					else if(isSelected[i]==0&&isSelected[j]==0) total2+=s[i][j];
 				}
