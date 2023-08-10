@@ -7,10 +7,8 @@ class Solution_6808_이도훈 {
 
     static final int TOTAL = 362880;
     static int cnt;
-    static int except;
     static boolean[] visited;
     static int[] A;
-    static int[] B;
 
 
     public static void main(String args[]) throws Exception {
@@ -26,7 +24,6 @@ class Solution_6808_이도훈 {
             st = new StringTokenizer(br.readLine());
 
             A = new int[10];
-            B = new int[10];
             visited = new boolean[19];
 
             for (int i = 1; i <= 9; i++) {
@@ -35,49 +32,37 @@ class Solution_6808_이도훈 {
             }
 
             cnt = 0;
-            except = 0;
 
-            perm(1);
+            perm(1,0);
 
-            sb.append("#").append(test_case).append(" ").append(cnt).append(" ").append(TOTAL - cnt - except).append("\n");
+            sb.append("#").append(test_case).append(" ").append(cnt).append(" ").append(TOTAL - cnt).append("\n");
         }
         System.out.println(sb);
     }
 
-    public static void perm(int depth) {
+    public static void perm(int depth, int sum) {
         // 9장을 다 고른 경우
         if (depth == 10) {
-            checkAWin();
+            if (sum > 85) {
+                cnt++;
+            }
             return;
         }
 
         for (int i = 1; i <= 18; i++) {
-            if(visited[i]) continue;
+            if (visited[i]) continue;
             visited[i] = true;
-            B[depth] = i;
-            perm(depth + 1);
+
+            if (A[depth] > i) {
+                perm(depth + 1, sum + A[depth] + i);
+            } else {
+                perm(depth + 1, sum);
+            }
+
             visited[i] = false;
         }
 
 
     }
 
-    public static void checkAWin() {
-        int a = 0;
-        int b = 0;
-
-        for (int i = 1; i <= 9; i++) {
-            if (A[i] > B[i]) {
-                a += A[i] + B[i];
-            } else if (A[i] < B[i]) {
-                b += A[i] + B[i];
-            }
-        }
-
-        if (a > b) {
-            cnt++;
-        } else if (a == b) {
-            except++;
-        }
-    }
 }
