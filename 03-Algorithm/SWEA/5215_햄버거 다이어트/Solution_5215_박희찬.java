@@ -24,7 +24,7 @@ public class Solution { // SWEA_5215
 			N = Integer.parseInt(st.nextToken());  // 재료의 수
 			L = Integer.parseInt(st.nextToken());  // 총 제한 칼로리
 			
-			int[] favorite = new int[N + 1];  // 재료에 대한 점수
+			int[] favorite = new int[N + 1];  // 재료의 선호 점수
 			int[] calorie = new int[N + 1];  // 재료의 칼로리
 			
 			for (int i = 1; i < N + 1; i++) {
@@ -36,6 +36,7 @@ public class Solution { // SWEA_5215
 			// [재료 개수][총 제한 칼로리]
 			DP = new int[N + 1][L + 1];
 			
+			// 각 재료당 선호 점수, 칼로리
 			int favo, cal;
 			for (int row = 1; row < N + 1; row++) {  // 재료 번호
 				for (int col = 1; col < L + 1; col++) {  // 현재 시점 최대 칼로리
@@ -50,7 +51,7 @@ public class Solution { // SWEA_5215
 					
 					// 2. 현재 재료를 추가하면 제한 칼로리를 넘는 경우.
 					else {
-						// 현재 무게 상황에서 현재 재료를 넣기전의 최댓값.
+						// 현재 칼로리 상황에서 현재 재료를 넣기전의 최댓값.
 						DP[row][col] = DP[row - 1][col];
 					}
 					
@@ -61,6 +62,4 @@ public class Solution { // SWEA_5215
 			System.out.println(sb.toString());
 		} // TC
 	}
-
-
 }
