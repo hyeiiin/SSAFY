@@ -1,5 +1,4 @@
 
-package sdf;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // 기본 제공코드는 임의 수정해도 관계 없습니다. 단, 입출력 포맷 주의
@@ -35,7 +34,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class Solution_5215_정준원 {
+class Solution {
 	static int L;
 	static int N;
 	static int res = 0;
@@ -89,13 +88,13 @@ class Solution_5215_정준원 {
 	}
 
 	static void solve(int sum, int cur, int tsum) {
-		System.out.println("cur" + cur);
+	//	System.out.println("cur" + cur);
 
 		if (cur >= N) {
 			if (sum < L) {
 				res = Math.max(res, tsum);
 			}
-			System.out.println("end bound res" + res);
+		//	System.out.println("end bound res" + res);
 			return;
 		}
 
@@ -105,7 +104,7 @@ class Solution_5215_정준원 {
 //			return;
 //		}
 
-		System.out.println(" tsum sum" + tsum + " " + sum);
+	//	System.out.println(" tsum sum" + tsum + " " + sum);
 
 		solve(sum, cur + 1, tsum);
 		solve(sum + k[cur], cur + 1, tsum + t[cur]);
