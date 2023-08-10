@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class Solution_4012_김나연 {
 	
-	static int t,n,a[],s[][],numbers[], numbers2[], isSelected[];
+	static int t,n,a[],s[][],isSelected[];
 	static int mn=Integer.MAX_VALUE;
 	
 	static void go(int cnt, int start) {
@@ -14,8 +14,8 @@ public class Solution_4012_김나연 {
 			int total2=0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
-					if(numbers[i]==1&&numbers[j]==1) total+=s[i][j];
-					else if(numbers[i]==0&&numbers[j]==0) total2+=s[i][j];
+					if(isSelected[i]==1&&isSelected[j]==1) total+=s[i][j];
+					else if(isSelected[i]==0&&isSelected[j]==0) total2+=s[i][j];
 				}
 			}
 			
@@ -25,9 +25,9 @@ public class Solution_4012_김나연 {
 		}
 		else {
 			for(int i=start;i<n;i++) {
-				numbers[a[i]]=1;
+				isSelected[a[i]]=1;
 				go(cnt+1, i+1);
-				numbers[a[i]]=0;
+				isSelected[a[i]]=0;
 			}
 		}
 	}
@@ -47,7 +47,7 @@ public class Solution_4012_김나연 {
 		
 			a=new int[n];
 			s=new int[n][n];
-			numbers=new int[n];
+			isSelected=new int[n];
 			
 			for (int i = 0; i < n; i++) {
 				st=new StringTokenizer(br.readLine());
