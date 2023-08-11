@@ -19,6 +19,8 @@ public class Main_16435_김수린 {
 			fruitHeight[i] = Integer.parseInt(st.nextToken());
 		}
 		
+		// 과일 높이 오름차순 정렬
+		// 가장 작은 것부터 차근차근 먹어서 길이 늘려갈 수 있는지 확인
 		Arrays.sort(fruitHeight);
 		for(int i = 0; i < N; i++) {
 			if(L >= fruitHeight[i]) L++;
