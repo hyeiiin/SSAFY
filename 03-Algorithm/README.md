@@ -146,3 +146,11 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 1. SWEA 5215 햄버거 다이어트 (Solution_5215_이름.java)
 2. SWEA 4012 요리사 (Solution_4012_이름.java)
 3. SWEA 6808 규영이와 인영이의 카드게임 (Solution_6808_이름.java)
+
+-------------
+#### 2023/08/10 algo_day9
+-------------
+
+1. 백준 2839 설탕배달 (Main_2839_이름.java)
+2. 백준 16435 스네이크 버드 (Main_16435_이름.java)
+3. 백준 15686 치킨 배달 (Main_15686_이름.java)
