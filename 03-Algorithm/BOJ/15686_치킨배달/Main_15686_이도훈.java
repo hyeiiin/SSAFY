@@ -5,14 +5,12 @@ import java.util.*;
 
 public class Main_15686_이도훈 {
 
-       static int[][] dirs = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
     static int[] selected;
     static int M;
     static int N;
     static ArrayList<Pos> chickenList;
     static ArrayList<Pos> houseList;
 
-    static boolean[] chickenVisited;
     static int[][] map;
 
     static int answer ;
@@ -45,8 +43,6 @@ public class Main_15686_이도훈 {
                 map[i][j] = num;
             }
         }
-        chickenVisited = new boolean[chickenList.size()];
-
 
         // 치킨집 C m 으로 조합 돌리기
         comb(0, -1);
@@ -83,11 +79,8 @@ public class Main_15686_이도훈 {
         // 조합
         // 이전 값보다 큰 값부터 돌아야 조합 완성
         for (int i = prev + 1; i < chickenList.size(); i++) {
-            if (chickenVisited[i]) continue;
-            chickenVisited[i] = true;
             selected[depth] = i;
             comb(depth + 1, i);
-            chickenVisited[i] = false;
         }
     }
 
