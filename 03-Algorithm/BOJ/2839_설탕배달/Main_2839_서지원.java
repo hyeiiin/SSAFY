@@ -24,7 +24,7 @@ public class Main_2839_서지원 {
 				result++;
 			} 
 			// n이 5로 나누어떨어지는 경우 n - 5, result + 1
-			else if (n % 5 == 0) {
+			else {
 				n -= 5;
 				result++;
 			} 
