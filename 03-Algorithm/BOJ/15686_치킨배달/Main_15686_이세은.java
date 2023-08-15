@@ -48,7 +48,7 @@ public class Main_15686_이세은 {
 
     public static void comb(int cnt, int idx){
 
-        if(cnt >= m){
+        if(cnt == m){
             int cityDist=0; //각 치킨집 조합으로 거리 구할 때마다 도시의 치킨거리 초기화 필요
             //선택된 치킨집까지의 도시거리 측정, 각 집의 최소거리 구하기
             for(int i=0; i< home.size(); i++){
