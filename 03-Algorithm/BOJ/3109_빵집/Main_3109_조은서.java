@@ -9,7 +9,7 @@ public class Main_3109_조은서 {
 	
 	static int R, C;
 	
-	// 이동 방향: 좌상, 우, 우상
+	// 이동 방향: 우상, 우, 우하
 	static int dx[] = {-1, 0, 1};
 	static int dy[] = {1, 1, 1};
 	
