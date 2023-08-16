@@ -15,7 +15,6 @@ public class Main {  // 2839
 		N = Integer.parseInt(st.nextToken());
 
 		// 구하려는 N을 설탕의 최소 무게로 나눔.
-		// = 설탕 봉지 최대 개수이므로, DP[][]의 크기를 정할 수 있음.
 		int size = N / 3 + 1;
 
 		// three = 3kg를 넣은 개수, five = 5kg를 넣은 개수
