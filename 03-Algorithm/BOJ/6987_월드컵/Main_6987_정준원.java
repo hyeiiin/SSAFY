@@ -32,7 +32,7 @@ public class Main_6987_정준원 {
 			draw = new int[6];
 			flag = true;
 
-			int w = 0, l = 0, d = 0;
+		 
 			int cnt2 = 0;
 
 			for (int j = 0; j < 6; j++) {
