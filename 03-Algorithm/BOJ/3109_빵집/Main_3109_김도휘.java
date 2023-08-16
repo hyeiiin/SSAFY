@@ -44,6 +44,7 @@ public class Main {
 
     public static void makePipe(int x, int y) {
 
+        //마지막 열에 도착했다면 
         if (y == C - 1) {
             isPossible = true;
             return;
