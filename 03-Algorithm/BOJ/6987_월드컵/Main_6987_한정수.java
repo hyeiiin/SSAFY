@@ -138,55 +138,7 @@ public class Main_6987_한정수 {
 				sb.append(0+" ");
 			}
 			
-			
-			
-			
-//			else {
-//				
-//				//4-2.무승부 합이 짝수라면, 무승부 개수가 타당한지 봐야함.
-//				//일단 
-//				while (!max_heap.isEmpty()) {
-//					int temp1 = -1;
-//					int temp2 = -1;
-//					temp1 = max_heap.poll();
-////					if(temp1 -1 > 0) {
-////						max_heap.add(temp1 -1);
-////					}
-//					//일단 1개 빼고,
-//					//2번째 빼려할때 비어있으면 break. 잘못된거임.
-//					if (max_heap.isEmpty()) {
-//						max_heap.add(temp1);
-//						draw_result = false;
-//						break;
-//					}
-//					else {
-//						temp2 = max_heap.poll();
-//						if(temp1 -1 != 0) {
-//							max_heap.add(temp1 -1);
-//						}
-//						
-//						if(temp2 -1 != 0) {
-//							max_heap.add(temp2 -1);							
-//						}
-//						
-//					}
-//					
-//				}
-//				if(draw_result) {
-//					sb.append(1+" ");
-//					
-//				}
-//				else {
-//					sb.append(0+" ");
-//				}
-//				
-//			}
-			
-			
-
-			
-			
-			
+					
 			
 		}
 		System.out.println(sb.toString());
