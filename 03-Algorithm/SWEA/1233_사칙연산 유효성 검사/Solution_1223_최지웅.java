@@ -1,4 +1,4 @@
-package todo.lesson._0808;
+package todo.lesson._0807;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Solution_1223_최지웅 {
+public class Solution_1233_최지웅 {
 
 	static int N;
 	static String[] tree;
