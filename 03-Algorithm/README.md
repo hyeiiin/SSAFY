@@ -167,3 +167,10 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 
 1. 백준 6987 월드컵 (Main_6987_이름.java)
 2. 백준 3109 빵집 (Main_3109_이름.java)
+
+-------------
+#### 2023/08/17 algo_day12
+-------------
+
+1. SWEA 1247 [S/W 문제해결 응용] 3일차 - 최적 경로 (Solution_1247_이름.java)
+2. SWEA 5644 [모의 SW 역량테스트] 무선 충전 (Solution_5644_이름.java)
