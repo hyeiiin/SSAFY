@@ -9,7 +9,6 @@ public class Solution {
     static Pos home, company;
     static Pos[] arr;
     static boolean[] visited;
-    static boolean isPossible;
     static int[] customer;
 
     public static void main(String[] args) throws IOException {
@@ -22,7 +21,6 @@ public class Solution {
             arr = new Pos[N + 2];
             visited = new boolean[N + 2];
             customer = new int[N];
-            isPossible = false;
             min = Integer.MAX_VALUE;
             StringTokenizer st = new StringTokenizer(br.readLine());
             int cx = Integer.parseInt(st.nextToken());
