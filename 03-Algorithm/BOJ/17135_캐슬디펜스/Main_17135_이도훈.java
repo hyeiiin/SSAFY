@@ -1,16 +1,13 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main_17135_이도훈 {
 
     static int N;
     static int M;
     static int D;
-    static ArrayList<Enemy> enemies;
+    static LinkedList<Enemy> enemies;
     static int max = Integer.MIN_VALUE;
     static Archer[] archers = new Archer[3];
 
@@ -25,7 +22,7 @@ public class Main_17135_이도훈 {
         M = Integer.parseInt(st.nextToken());
         D = Integer.parseInt(st.nextToken());
 
-        enemies = new ArrayList<>();
+        enemies = new LinkedList<>();
         for (int i = 0; i < 3; i++) {
             archers[i] = new Archer();
         }
@@ -39,7 +36,7 @@ public class Main_17135_이도훈 {
             }
         }
 
-        Collections.sort(enemies, (o1, o2) ->{
+        Collections.sort(enemies, (o1, o2) -> {
             if (o1.x == o2.x) {
                 return o2.y - o1.y;
             }
@@ -55,20 +52,16 @@ public class Main_17135_이도훈 {
     static void comb(int depth, int prev) {
         if (depth == 3) {
 
-            ArrayList<Enemy> copy = copy(enemies);
-
-            for (Archer archer : archers) {
-                archer.enemies = copy;
-            }
+            List<Enemy> copy = copy(enemies);
 
             // 디펜스 시작
             int cnt = 0;
             for (int i = 0; i < N; i++) {
-                if(copy.size() == 0) break;
+                if (copy.size() == 0) break;
                 // 화살 발사
-                Enemy one = archers[0].fire();
-                Enemy two = archers[1].fire();
-                Enemy three = archers[2].fire();
+                Enemy one = archers[0].fire(copy);
+                Enemy two = archers[1].fire(copy);
+                Enemy three = archers[2].fire(copy);
 
                 if (copy.remove(one)) {
                     cnt++;
@@ -104,8 +97,8 @@ public class Main_17135_이도훈 {
         }
     }
 
-    static ArrayList<Enemy> copy(ArrayList<Enemy> list) {
-        ArrayList<Enemy> result = new ArrayList<>();
+    static List<Enemy> copy(List<Enemy> list) {
+        List<Enemy> result = new LinkedList<>();
         for (Enemy enemy : list) {
             result.add(enemy.copy());
         }
@@ -118,29 +111,22 @@ public class Main_17135_이도훈 {
         int y;
         int range;
 
-        ArrayList<Enemy> enemies;
-
         public Archer() {
             this.y = N;
             this.range = D;
         }
 
-        public Enemy fire() {
-            int min = Integer.MAX_VALUE;
+        public Enemy fire(List<Enemy> enemies) {
+            int min = range + 1;
+            Enemy result = null;
             for (Enemy enemy : enemies) {
                 int dist = Math.abs(enemy.x - this.x) + Math.abs(enemy.y - this.y);
-                if (dist <= range) {
-                    min = Math.min(min, dist);
+                if (dist < min) {
+                    min = dist;
+                    result = enemy;
                 }
             }
-
-            for (Enemy enemy : enemies) {
-                int dist = Math.abs(enemy.x - this.x) + Math.abs(enemy.y - this.y);
-                if (dist == min) {
-                    return enemy;
-                }
-            }
-            return null;
+            return result;
         }
     }
 
@@ -160,7 +146,7 @@ public class Main_17135_이도훈 {
         public boolean move() {
             y++;
 
-            if(y == N) return false;
+            if (y == N) return false;
 
             return true;
         }
