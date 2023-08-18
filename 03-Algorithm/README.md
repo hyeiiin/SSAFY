@@ -174,3 +174,11 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 
 1. SWEA 1247 [S/W 문제해결 응용] 3일차 - 최적 경로 (Solution_1247_이름.java)
 2. SWEA 5644 [모의 SW 역량테스트] 무선 충전 (Solution_5644_이름.java)
+
+-------------
+#### 2023/08/18 algo_day13
+-------------
+
+1. 백준 1260 BFS와 DFS (Main_1260_이름.java)
+2. 백준 17135 캐슬디펜스 (Main_17135_이름.java)
+
