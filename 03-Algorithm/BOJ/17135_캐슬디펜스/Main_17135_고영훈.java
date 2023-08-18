@@ -15,8 +15,8 @@ public class Main_17135_고영훈 {
 	static int N;
 	static int M;
 	static int D;
-	// mat:모든 공격이 끝나고 다시 되돌리기 위한 원본 배열
-	// matOri: 적들이 분포된 장소
+	// mat: 적들이 분포한 장소
+	// matOri: 모든 공격이 끝나고 다시 되돌리기 위한 원본 배열
 	// visited: BFS용
 	static boolean[][] mat;
 	static boolean[][] matOri;
