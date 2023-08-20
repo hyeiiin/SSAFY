@@ -37,7 +37,7 @@ public class Main_2178_이세은 {
         System.out.println(arr[n-1][m-1]); //마지막으로 크기가 업데이트 된 정답 좌표의 값이 최소거리
     }
     
-    //(0,0)부터 시작해서 (n,m)까지의 최소거리 찾는 메서드, 갈 수 있는 좌표의 값 1을 더하는 cnt를 매개변수로 가진다
+    //(0,0)부터 시작해서 (n,m)까지의 최소거리 찾는 메서드
     private static void bfs(int i, int j){
         
         Queue<int[]> q = new LinkedList<>(); //탐색하는 곳(좌표)을 순차적으로 넣어줄 큐 생성
