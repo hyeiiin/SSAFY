@@ -39,10 +39,9 @@ public class _10026_Boj {
 			}
 		}
 
-		int[] cnt = new int[3]; // 구역번호 3부터 시작
+		int[] cnt = new int[3]; 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				// 확인 안된 rgb값이면 check
 				if (!visited[i][j]) {
 					if(map[i][j] == 2) {
 						move(i,j);
