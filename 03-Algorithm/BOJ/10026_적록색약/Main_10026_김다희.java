@@ -54,7 +54,7 @@ public class Main{
 				if(nr>=0&&nr<n&&nc>=0&&nc<n) {
 					if(!visited[nr][nc]&&map[nr][nc]==map[r][c]) {
 						visited[nr][nc]=true;
-						stack.add(new int[] {nr,nc});
+						stack.addLast(new int[] {nr,nc});
 					}
 				}
 			}
@@ -73,9 +73,9 @@ public class Main{
 				nc=curr[1]+dir[i][1];
 				if(nr>=0&&nr<n&&nc>=0&&nc<n) {
 					if(!visited[nr][nc]) {
-						if((map[r][c]=='B'&&map[nr][nc]=='B')||(map[r][c]=='R'&&(map[nr][nc]=='R'||map[nr][nc]=='G'))) {
+						if((map[r][c]=='B'&&map[nr][nc]=='B')||((map[r][c]=='R'||map[r][c]=='G')&&(map[nr][nc]=='R'||map[nr][nc]=='G'))) {
 							visited[nr][nc]=true;
-							stack.add(new int[] {nr,nc});
+							stack.addLast(new int[] {nr,nc});
 						}
 					}
 				}
