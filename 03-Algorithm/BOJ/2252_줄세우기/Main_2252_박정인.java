@@ -49,21 +49,18 @@ public class Main_2252_박정인 {
 		
 		Queue<Integer> q = new ArrayDeque<>();
 		for (int i = 1; i <= N; i++) {
-			if (indegrees[i] == 0) {
-				sb.append(i).append(" ");
+			if (indegrees[i] == 0) {				
 				q.offer(i);
 			}
 		}
 		
 		while (!q.isEmpty()) {
 			int now = q.poll();
-			
+			sb.append(now).append(" ");
 			for (int next : list[now]) {
-				indegrees[next]--;
-				
+				indegrees[next]--;				
 				if (indegrees[next] == 0) {
-					q.offer(next);
-					sb.append(next).append(" ");
+					q.offer(next);				
 				}
 			}
 		}
