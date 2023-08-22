@@ -30,6 +30,7 @@ public class Main_13023_이도훈 {
 			int a = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
 
+			// 양방향 그래프
 			adjList[a].add(b);
 			adjList[b].add(a);
 		}
@@ -44,9 +45,11 @@ public class Main_13023_이도훈 {
 
 	}
 
+	// dfs로 모든 경우의 수 돌면서 5명이 연결되어있는지 확인
 	static void dfs(int num , int cnt) {
 		if(isPossible) return;
 
+		// 4번의 연결은 곧 5명이 연결되어있다는 의미
 		if (cnt == 4) {
 			isPossible = true;
 			return;
