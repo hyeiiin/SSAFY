@@ -1,10 +1,9 @@
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-class Solution {
+class Solution_3289_이도훈 {
 
 	static int[] parents;
 
