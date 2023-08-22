@@ -18,15 +18,15 @@ public class Main_15683_김현영 {
 			for (int j = 0; j < m; j++) {
 				if (map[i][j] == 1) {
 					for (int k = 0; k < 4; k++) {
-                        // 백트레킹을 위한 배열 복사
+						// 백트레킹을 위한 배열 복사
 						temp = new int[n][m];
 						for (int a = 0; a < n; a++) {
 							for (int b = 0; b < m; b++) {
 								temp[a][b] = map[a][b];
 							}
 						}
-
-                        int nr = i + dr[k];
+						
+						int nr = i + dr[k];
 						int nc = j + dc[k];
 						
 						// 감시 영역 표시
@@ -53,7 +53,6 @@ public class Main_15683_김현영 {
 
 						// 감시 영역 표시
 						int cnt = 0;
-
 						int nr = i + dr[k];
 						int nc = j + dc[k];
 						cnt = onCCTV(nr, nc, k, cnt);
@@ -81,7 +80,6 @@ public class Main_15683_김현영 {
 
 						// 감시 영역 표시
 						int cnt = 0;
-
 						int nr = i + dr[k];
 						int nc = j + dc[k];
 						cnt = onCCTV(nr, nc, k, cnt);
