@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_15683_감시 {
+public class Main_15683_박정인 {
 	static class Cctv {
 		int x, y, index;
 
