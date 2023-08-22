@@ -3,7 +3,7 @@ package BOJ.Test;
 import java.io.*;
 import java.util.*;
 
-public class Main_13034_김수린 {
+public class Main_13023_김수린 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
