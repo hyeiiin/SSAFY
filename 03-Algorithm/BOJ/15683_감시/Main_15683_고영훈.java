@@ -29,9 +29,9 @@ public class Main_15683_고영훈 {
 	// CCTV 종류별 delta 목록을 회전시켜서 방향별로 저장한 목록
 	final static Pos[][][] cctvDeltasbyRotate = {
 			cctvDeltas,
-			rotateAllAll(cctvDeltas),
-			rotateAllAll(rotateAllAll(cctvDeltas)),
-			rotateAllAll(rotateAllAll(rotateAllAll(cctvDeltas)))
+			rotateCctvAll(cctvDeltas, 1),
+			rotateCctvAll(cctvDeltas, 2),
+			rotateCctvAll(cctvDeltas, 3)
 	};
 
 	/**
@@ -50,7 +50,7 @@ public class Main_15683_고영훈 {
 	/**
 	 * 방향 회전
 	 */
-	private static Pos rotate(final Pos d) {
+	private static Pos rotateDelta(final Pos d) {
 		if (d == up) {
 			return right;
 		}
@@ -69,11 +69,11 @@ public class Main_15683_고영훈 {
 	/**
 	 * CCTV 회전
 	 */
-	private static Pos[] rotateAll(final Pos[] ds) {
+	private static Pos[] rotateCctv(final Pos[] ds) {
 		final int length = ds.length;
 		final Pos[] result = new Pos[length];
 		for (int i = 0; i < length; i++) {
-			result[i] = rotate(ds[i]);
+			result[i] = rotateDelta(ds[i]);
 		}
 		return result;
 	}
@@ -81,14 +81,17 @@ public class Main_15683_고영훈 {
 	/**
 	 * CCTV 목록을 받아서 회전된 CCTV 목록 반환
 	 */
-	private static Pos[][] rotateAllAll(final Pos[][] dss) {
+	private static Pos[][] rotateCctvAll(final Pos[][] dss, final int repeat) {
 		final int length = dss.length;
 		final Pos[][] result = new Pos[length][];
 		for (int i = 0; i < length; i++) {
 			if (dss[i] == null) {
 				continue;
 			}
-			result[i] = rotateAll(dss[i]);
+			result[i] = rotateCctv(dss[i]);
+			for (int j = 1; j < repeat; j++) {
+				result[i] = rotateCctv(result[i]);
+			}
 		}
 		return result;
 	}
@@ -114,9 +117,9 @@ public class Main_15683_고영훈 {
 	}
 
 	/**
-	 * 부분집합: CCTV를 회전시키는 모든 경우의 수에서 CCTV가 볼 수 있는 영역의 최대값을 구합니다.
+	 * 중복순열: CCTV를 회전시키는 모든 경우에서 CCTV가 볼 수 있는 영역의 최대값을 구합니다.
 	 */
-	private static int subset(final int index) {
+	private static int permutationRepeat(final int index) {
 		int result = 0;
 		if (index == cctvPosList.size()) {
 			return result;
@@ -136,7 +139,7 @@ public class Main_15683_고영훈 {
 				mat[m.y][m.x] = -1;
 			}
 			// 3. 나머지 CCTV에서 최대값을 얻고 좌표 목록의 수를 더해서 현재 함수의 최대값을 갱신합니다.
-			result = Math.max(result, subset(index + 1) + monitored.size());
+			result = Math.max(result, permutationRepeat(index + 1) + monitored.size());
 			// 4. 다음 회전을 위해 -1로 설정한 좌표들을 다시 0으로 복구합니다.
 			for (final Pos m : monitored) {
 				mat[m.y][m.x] = 0;
@@ -173,6 +176,6 @@ public class Main_15683_고영훈 {
 			}
 		}
 		// 사각지대 = 처음 0 개수 - CCTV로 볼 수 있는 최대 영역
-		System.out.println(zeros - subset(0));
+		System.out.println(zeros - permutationRepeat(0));
 	}
 }
