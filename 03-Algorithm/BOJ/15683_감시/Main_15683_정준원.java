@@ -155,61 +155,6 @@ public class Main_15683_정준원 {
 	}
 	// 상좌하우
 
-	static void respread(int r, int c, char[][] arrcopy, int[][] cctvcopy) {
-		Queue<int[]> q = new LinkedList<>();
-
-		ArrayList<Integer> dir = new ArrayList<>();
-		// System.out.println("respread start");
-		// System.out.println("cctvcidx " + arrcopy[r][c]);
-
-		for (int i = 0; i < 4; i++) {
-//			System.out.println("      c" + Arrays.toString(cctvcopy[i]));
-		}
-		for (int i = 0; i < 4; i++) {
-			if (1 == cctvcopy[(arrcopy[r][c]) - '0' - 1][i]) {
-				dir.add(i);
-			}
-		}
-		// System.out.println("dir " + (int) ((arrcopy[r][c]) - '0') + " " +
-		// dir.toString() + " r c " + r + " " + c);
-
-		for (int i = 0; i < dir.size(); i++) {
-
-			q.add(new int[] { r, c, dir.get(i) });
-		}
-
-		int size = q.size();
-
-		for (int i = 0; i < size; i++) {
-			int[] v = q.poll();
-			respread2(v[0], v[1], arrcopy, cctvcopy, v[2]);
-		}
-
-	}
-
-	static void respread2(int r, int c, char[][] arrcopy, int[][] cctvcopy, int dir) {
-		Queue<int[]> q = new LinkedList<>();
-
-		q.add(new int[] { r, c, dir });
-
-		while (!q.isEmpty()) {
-			int[] v = q.poll();
-//			System.out.println("v0 v1 v2 " + v[0] + " " + v[1] + " " + v[2]);
-			int nr = v[0] + dr[v[2]];
-			int nc = v[1] + dc[v[2]];
-
-			if (isvalid(nr, nc) && arrcopy[nr][nc] == '#') {
-				// System.out.println("nr nc" + nr + " " + nc);
-				q.add(new int[] { nr, nc, v[2] });
-				visit[nr][nc] -= 1;
-//				if (visit[nr][nc] <= 0)
-				if (visit[nr][nc] <= 0 && (arrcopy[nr][nc] < '1' || arrcopy[nr][nc] > '5'))
-					arrcopy[nr][nc] = '0';
-			}
-		}
-
-	}
-
 	static boolean isvalid(int r, int c) {
 		return r >= 0 && r < N && c >= 0 && c < M;
 	}
