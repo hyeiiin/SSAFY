@@ -14,6 +14,7 @@ public class Main_15683_서지원 {
 	static List<int[]> cctv;
 	static int[] dx = {1, 0, -1, 0}, dy = {0, 1, 0, -1};
 	
+	// 5가지 종류의 cctv가 감시할 수 있는 방향 배열에 저장
 	static int[][][] mode = {
 			{},
 			{{0}, {1}, {2}, {3}},
@@ -38,7 +39,7 @@ public class Main_15683_서지원 {
 			for (int j = 0; j < M; j++) {
 				office[i][j] = Integer.parseInt(st.nextToken());
 				if (office[i][j] == 0 || office[i][j] == 6) continue;
-				cctv.add(new int[] {office[i][j], i, j});
+				cctv.add(new int[] {office[i][j], i, j}); // {cctv 종류, x좌표, y좌표}
 			}
 		}
 		
@@ -47,7 +48,9 @@ public class Main_15683_서지원 {
 		System.out.println(result);
 	}
 	
+	// 백트래킹
 	private static void dfs(int k, int[][] office) {
+		// 사무실에 설치된 cctv를 모두 확인한 경우, 사각지대 크기 갱신
 		if (k == cctv.size()) {
 			int cnt = 0;
 			for (int i = 0; i < N; i++) {
@@ -59,16 +62,19 @@ public class Main_15683_서지원 {
 			return;
 		}
 		
+		// cctv
 		int[] info = cctv.get(k);
 		int x = info[1], y = info[2];
-		int[][] temp = copyOffice(office);
+		
+		int[][] temp = copyOffice(office); 
 		for (int[] m : mode[info[0]]) {
-			update(temp, m, x, y);
+			update(temp, m, x, y); 
 			dfs(k + 1, temp);
 			temp = copyOffice(office);
 		}
 	}
 
+	// 사무실 복사
 	private static int[][] copyOffice(int[][] office) {
 		int[][] copyOffice = new int[N][M];
 		for (int i = 0; i < N; i++) {
@@ -79,6 +85,7 @@ public class Main_15683_서지원 {
 		return copyOffice;
 	}
 
+	// cctv 감시
 	private static void update(int[][] temp, int[] direction, int x, int y) {
 		for (int d : direction) {
 			int nx = x, ny = y;
@@ -87,12 +94,13 @@ public class Main_15683_서지원 {
 				ny += dy[d];
 				if (!isIn(nx, ny) || temp[nx][ny] == 6) break;
 				if (temp[nx][ny] == 0) {
-					temp[nx][ny] = 7;
+					temp[nx][ny] = 7; 
 				}
 			}
 		}
 	}
 	
+	// 사무실 내부에 위치하고 있는지 확인
 	private static boolean isIn(int x, int y) {
 		if (x < 0 || x >= N || y < 0 || y >= M) return false;
 		return true;
