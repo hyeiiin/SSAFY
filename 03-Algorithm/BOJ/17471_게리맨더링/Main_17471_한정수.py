@@ -32,84 +32,78 @@ for i in range(1, N+1):
 
 visited = [False for i in range(N+1)]
 visited[0] = True
-color = [0 for i in range(N+1)]
-
 min_diff = sys.maxsize
-# print(min_diff)
 
+# 입력 완료===========
 
-# dfs
-def dfs(cnt, node, cur_color, dfs_sum, visited):
+def dfs(node, cur_color, dfs_sum, visited, color):
     # print("dfs node : ",node, "sum : ", dfs_sum)
     visited[node] = True
 
     # 현재 호출된 노드의 모든 인접 노드에 대해.
     for n in graph[node]:
-        if not visited[n] and color[n] == cur_color:
+        if not visited[n] and color[n-1] == cur_color:
             # 그 인접 노드가 방문한 적 없으면서 color가 최초 시작지점 color가 동일할때
-            dfs_sum = dfs(cnt + 1, n, cur_color, dfs_sum, visited)
+            dfs_sum = dfs(n, cur_color, dfs_sum, visited, color)
         else:
             #즉, visited[n] = True거나, color가 다를 경우
             continue # 인접한 다음 노드로 넘기고
 
     return dfs_sum + people[node]  # 현재 노드에서 탐색이 끝나면 현재 노드의 weight만큼 더하고 리턴.
+# dfs 구현====================끝
 
 
-# 부분집합 실행
-def partial_comb(cnt, start, visited):
-    if cnt == N:
-        # 0이 아에 없거나, 1이 아에 없으면 안됨.
-        if 1 not in color or 0 not in color:
-            return
-        # print(color)
-        # 현재 색 조합으로 dfs 실행.
-        # 방문 배열 초기화
-        visited = [False for _ in range(N+1)]
-        visited[0] = True
-        sum_a = -1
-        sum_b = -1
+# main 시작=======================
 
-        count = 0
-        #모든 노드에 대해서,
-        for i in range(1, N+1):
-            # 방문하지 않았다면 dfs 시작.
-            # 이미 1번 dfs를 갔다왔다면, 첫번째 노드와 동일하면서 같은 구역인 애들은 다 visited 됬을거임.
-            # 그러므로 2번째 dfs때는 반드시 첫번째 노드와 다른 색깔일 것이며,
-            # 2번, 즉 빨강/파랑 에 대해 각각 1번씩 dfs를 돌았다면 break
-            if not visited[i]:
-                count += 1
-                temp_sum = dfs(0, i, color[i], 0, visited)
-                if count == 1:
-                    sum_a = temp_sum
-                elif count == 2:
-                    sum_b = temp_sum
-                    break
+# 각 노드의 모든 색깔의 경우의수에 해당하는 부분집합 생성.
+# ==============파이썬 만세====================
+from itertools import product
+comb = [0, 1]
+partial_list = list(product(comb, repeat=N))
 
-        if False in visited:
-            # 2번 돌렸는데 하나라도 방문 안된게 있으면 잘못된거임.
-            return
-        else:
-            # 최솟값 갱신
-            global min_diff
-            temp = abs(sum_a - sum_b)
-            min_diff = min(min_diff, temp)
+for color_list in partial_list:
+    # 각각의 노드별 색깔 조합(부분집합) 에 대해,
+    # 0이 아에 없거나, 1이 아에 없으면 안됨.
+    if 1 not in color_list or 0 not in color_list:
+        continue
+    # print(color)
+    # 현재 색 조합으로 dfs 실행.
+    # 방문 배열 초기화
+    visited = [False for _ in range(N + 1)]
+    visited[0] = True
+    sum_a = -1
+    sum_b = -1
+    count = 0
+    # 모든 노드에 대해서,
+    for i in range(1, N + 1):
+        # 방문하지 않았다면 dfs 시작.
+        # 이미 1번 dfs를 갔다왔다면, 첫번째 노드와 동일하면서 같은 구역인 애들은 다 visited 됬을거임.
+        # 그러므로 2번째 dfs때는 반드시 첫번째 노드와 다른 색깔일 것이며,
+        # 2번, 즉 빨강/파랑 에 대해 각각 1번씩 dfs를 돌았다면 break
+        if not visited[i]:
+            count += 1
+            temp_sum = dfs(i, color_list[i-1], 0, visited, color_list)
+            if count == 1:
+                sum_a = temp_sum
+            elif count == 2:
+                sum_b = temp_sum
+                break
 
-    #부분집합.
-    for i in range(start, N+1):
-        # i번째를 0으로 세팅
-        color[i] = 0
-        partial_comb(cnt+1, i+1, visited)
-        # i번째를 1로 세팅
-        color[i] = 1
-        partial_comb(cnt+1, i+1, visited)
+    if False in visited:
+        # 2번 돌렸는데 하나라도 방문 안된게 있으면 잘못된거임.
+        continue
+    else:
+        # 최솟값 갱신
+        # global min_diff
+        temp = abs(sum_a - sum_b)
+        min_diff = min(min_diff, temp)
 
-    return
-
-# print(people[1:])
-partial_comb(0, 1, visited)
 if min_diff == sys.maxsize:
     # 한번도 구획 결정이 되지 않은 경우.
     print(-1)
 else:
     print(min_diff)
+
+
+
 
