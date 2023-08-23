@@ -17,7 +17,6 @@ public class Main_17471_정준원 {
 	static int max = 0;
 	static int res = Integer.MAX_VALUE;
 	static boolean[] visit;
-//	static int[][] arr;
 	static int[] dr = { 1, 0, -1, 0 }; // 아 오 위 왼
 	static int[] dc = { 0, 1, 0, -1 };
 	static int A[][];
@@ -64,14 +63,22 @@ public class Main_17471_정준원 {
 //				parent[a] = i;
 				union(a, i);
 			}
+
+//			for (int x : nodes[i])
+//				// System.out.print("nodes " + x);
+//				System.out.println();
 		}
 
-		System.out.println(Arrays.toString(parent));
-		System.out.println("sss");
+		// System.out.println(Arrays.toString(parent));
+		// System.out.println("sss");
 
 		int[] jo = new int[N + 1];
 		solve(1, jo);
-
+		
+		if (res == Integer.MAX_VALUE) {
+			// System.out.println("in");
+			res = -1;
+		}
 		System.out.println(res);
 
 	}
@@ -81,7 +88,6 @@ public class Main_17471_정준원 {
 			return a;
 
 		return parent[a] = find(parent[a]);
-
 	}
 
 	static void union(int a, int b) {
@@ -101,23 +107,25 @@ public class Main_17471_정준원 {
 			visit = new boolean[N + 1];
 
 			int cnt = 0;
+
 			for (int i = 1; i < N + 1; i++) {
-				bfs(jo, i);
-				cnt++;
+				if (!visit[i]) {
+
+					bfs(jo, i);
+					cnt++;
+				}
 			}
 
 			int v = 0;
-			System.out.println("cnt " + cnt);
+			// System.out.println("jo" + Arrays.toString(jo));
+			// System.out.println("cnt " + cnt);
 
 			if (cnt == 2) {
-				System.out.println("fin " + getcnt(jo));
 				v = getcnt(jo);
-			}
 
-			if (res == Integer.MIN_VALUE)
-				res = -1;
-			else
+				// System.out.println("fin " + v);
 				res = Math.min(res, v);
+			}
 
 			return;
 		}
@@ -125,13 +133,12 @@ public class Main_17471_정준원 {
 		for (int i = 1; i <= 2; i++) {
 			jo[depth] = i;
 			solve(depth + 1, jo);
-
 		}
 
 	}
 
 	static void bfs(int[] jo, int v) {
-
+		// System.out.println("v " + v);
 		Queue<Integer> q = new LinkedList<>();
 		q.add(v);
 		visit[v] = true;
@@ -140,6 +147,7 @@ public class Main_17471_정준원 {
 			int s = q.poll();
 			for (int i : nodes[s]) {
 				if (!visit[i] && jo[v] == jo[i]) {
+					// System.out.println("i jo[v] jo[i]" + i + " " + jo[v] + " " + jo[i]);
 					q.add(i);
 					visit[i] = true;
 				}
