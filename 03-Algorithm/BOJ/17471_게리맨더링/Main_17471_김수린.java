@@ -3,7 +3,7 @@ package SR;
 import java.io.*;
 import java.util.*;
 
-public class Main_17471_±è¼ö¸° {	// union »ç¿ë
+public class Main_17471_ê¹€ìˆ˜ë¦° {	// union ì‚¬ìš©
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
@@ -99,7 +99,7 @@ public class Main_17471_±è¼ö¸° {	// union »ç¿ë
 	}
 }
 
-//public class BOJ17471_BFS {	// BFS »ç¿ë
+//public class BOJ17471_BFS {	// BFS ì‚¬ìš©
 //	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 //	static StringTokenizer st;
