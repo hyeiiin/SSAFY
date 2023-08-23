@@ -18,7 +18,7 @@ public class Main_1600_김수린 {
 	 * bfs에서 큐에 담을 좌표와 말처럼 얼마나 움직일 수 있는지 담을 클래스
 	 */
 	public static class Point {
-		int x, y, cnt, k;	// (x, y) 좌표, 말처럼 움직일 수 있는 횟수
+		int x, y, k;	// (x, y) 좌표, 말처럼 움직일 수 있는 횟수
 
 		public Point(int x, int y, int k) {
 			this.x = x;
