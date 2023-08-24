@@ -7,8 +7,8 @@ def main():
     N = int(input())
     innings = [list(map(int, input().split())) for _ in range(N)]
     max_score = 0
-    for plater_order in permutations(range(1, 9)):
-        player_cycle = cycle(plater_order[:3] + (0,) + plater_order[3:])
+    for player_order in permutations(range(1, 9)):
+        player_cycle = cycle(player_order[:3] + (0,) + player_order[3:])
         score = 0
         for results in innings:
             base1 = 0
