@@ -106,19 +106,16 @@ public class Solution_1251_서지원 {
 		minEdge[0] = 0;
 		pq.offer(new Vertex(0, minEdge[0]));
 		
-		double cost = 0; 
-		double min = 0.0;
+		double cost = 0, min = 0; 
 		int minVertex = 0, cnt = 0;
 		while (!pq.isEmpty()) {
 			Vertex cur = pq.poll();
 			minVertex = cur.no;
 			min = cur.weight;
 			if (visited[minVertex]) continue;
-			
 			visited[minVertex] = true;
 			cost += min;
 			if (++cnt == N) break;
-			
 			for (int i = 0; i < N; i++) {
 				if (visited[i] || adjMatrix[minVertex][i] == 0) continue;
 				if (minEdge[i] > adjMatrix[minVertex][i]) {
