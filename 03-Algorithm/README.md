@@ -205,3 +205,10 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 1. SWEA 3124 D4 최소 스패닝 트리 (Solution_3124_이름.java)
 2. 백준 17471 게리맨더링 (Main_17471_이름.java)
 3. 백준 1600 말이되고픈 원숭이 (Main_1600_이름.java)
+
+-------------
+#### 2023/08/24 algo_day17
+-------------
+1. SWEA 1251 [S/W 문제해결 응용] 4일차 - 하나로 (Solution_1251_이름.java)
+2. 백준 17281 야구 (Main_17281_이름.java)
+
