@@ -15,9 +15,9 @@ class Main_1600_이도훈 {
 	static int[][] map;
 	static boolean[][][] visited;
 
-	static int[][] horseDirs = {{-2, -1}, {-1, -2}, {1, -2}, {2, -1}, {2, 1}, {1, 2}, {-1, 2},
-		{-2, 1}};
-	static int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+	static int[][] dirs = {{-2, -1, 1}, {-1, -2, 1}, {1, -2, 1}, {2, -1, 1}, {2, 1, 1},
+		{1, 2, 1}, {-1, 2, 1},
+		{-2, 1, 1}, {1, 0, 0}, {-1, 0, 0}, {0, 1, 0}, {0, -1, 0}};
 
 
 	public static void main(String args[]) throws Exception {
@@ -36,15 +36,12 @@ class Main_1600_이도훈 {
 
 		for (int i = 0; i < H; i++) {
 			st = new StringTokenizer(br.readLine());
-			Arrays.fill(map[i], Integer.MAX_VALUE);
 			for (int j = 0; j < W; j++) {
-				map[i][j] = -Integer.parseInt(st.nextToken());
+				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 
-		// 기본 이동, 말 이동
-
-		visited = new boolean[K+1][H][W];
+		visited = new boolean[K + 1][H][W];
 
 		Queue<Pos> queue = new ArrayDeque<>();
 		queue.add(new Pos(0, 0, 0, 0));
@@ -63,41 +60,21 @@ class Main_1600_이도훈 {
 			for (int[] dir : dirs) {
 				int mx = cur.x + dir[0];
 				int my = cur.y + dir[1];
+				int mz = cur.horse + dir[2];
 
-				if (!isMovable(mx, my, cur.horse)) {
+				if (!isMovable(mx, my, mz)) {
 					continue;
 				}
-				if (map[my][mx] == -1) {
+				if (map[my][mx] == 1) {
 					continue;
 				}
-				if (visited[cur.horse][my][mx]) {
+				if (visited[mz][my][mx]) {
 					continue;
 				}
 
-				visited[cur.horse][my][mx] = true;
+				visited[mz][my][mx] = true;
 
-				queue.add(new Pos(mx, my, cur.cnt + 1, cur.horse));
-			}
-
-			if (cur.horse != K) {
-				for (int[] horseDir : horseDirs) {
-					int mx = cur.x + horseDir[0];
-					int my = cur.y + horseDir[1];
-					int mz = cur.horse + 1;
-
-					if (!isMovable(mx, my,mz)) {
-						continue;
-					}
-					if (map[my][mx] == -1) {
-						continue;
-					}
-					if (visited[mz][my][mx]) {
-						continue;
-					}
-					visited[mz][my][mx] = true;
-
-					queue.add(new Pos(mx, my, cur.cnt + 1, cur.horse + 1));
-				}
+				queue.add(new Pos(mx, my, cur.cnt + 1, mz));
 			}
 		}
 
