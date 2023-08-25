@@ -7,22 +7,22 @@ def main():
 
     # 입력
     R, C, M = map(int, stdin.readline().split())
-    see = {}
+    sea = {}
     for line in stdin.read().splitlines():
         r, c, s, d, z = map(int, line.split())
-        see[r, c] = (s, d, z)
+        sea[r, c] = (s, d, z)
 
     # 상어 크기의 합
     answer = 0
     for c in range(1, C + 1):
         # 상어 낚시해버리기
         for r in range(1, R + 1):
-            if (r, c) in see:
-                answer += see.pop((r, c))[-1]
+            if (r, c) in sea:
+                answer += sea.pop((r, c))[-1]
                 break
         # 상어 움직여버리기
-        new_see = {}
-        for (r, c), (s, d, z) in see.items():
+        new_sea = {}
+        for (r, c), (s, d, z) in sea.items():
             # 상어가 경계를 벗어나면 경계 안에 들어갈 때까지 위치와 방향을 뒤집음
             # 상하
             if d <= 2:
@@ -45,9 +45,9 @@ def main():
                         d = 4
                         c = C * 2 - c
             # 상어 잡아먹어버리기
-            if (r, c) not in new_see or z > new_see[r, c][-1]:
-                new_see[r, c] = (s, d, z)
-        see = new_see
+            if (r, c) not in new_sea or z > new_sea[r, c][-1]:
+                new_sea[r, c] = (s, d, z)
+        sea = new_sea
     print(answer)
 
 
