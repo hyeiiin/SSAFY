@@ -23,12 +23,12 @@ public class Main_1753_조은서 {
 	static int[] distance;
 	static final int INF = Integer.MAX_VALUE;
 	static PriorityQueue<Node> pq;
-	
+	static StringBuilder sb = new StringBuilder();
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
-		StringBuilder sb = new StringBuilder();
+		
 		
 		st = new StringTokenizer(br.readLine());
 		V = Integer.parseInt(st.nextToken()); // 정점 개수
@@ -84,8 +84,8 @@ public class Main_1753_조은서 {
 		}
 		
 		for(int i =1; i<distance.length; i++) {
-			if(distance[i]==INF) System.out.println("INF" + " ");
-			else System.out.println(distance[i] + " ");
+			if(distance[i]==INF) sb.append("INF\n");
+			else sb.append(distance[i] + "\n");
 		}
 		// -- end
 	}
