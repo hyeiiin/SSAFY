@@ -15,7 +15,7 @@ public class Main_17281_김태훈 {
 	 */
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st = null;
-	static int N, ainta[][], p = 9, numbers[], max_score = 0;
+	static int N, ainta[][], p = 9, numbers[], max_score = 0, score = 0;
 	static boolean iscelect[];
 
 	/*
@@ -36,18 +36,14 @@ public class Main_17281_김태훈 {
 
 	static void perm(int cnt) {
 		//만들때 하나 작게 만들어서 그 4번에 넣기만 하기
-		if(cnt == 4) {
-			if(numbers[3] != 0) return;
-		}
 		if (cnt == p) {
-			if (numbers[3] == 0) {
-				int scores = solve();
-				max_score = Math.max(max_score, scores);
-				return;
-			} else {				
-				return;
-			}
-		}
+            if (numbers[3] != 0) {
+                return;
+            }
+            int scores = solve();
+            max_score = Math.max(max_score, scores);
+            return;
+        }
 		for (int i = 0; i < p; i++) {
 			if (iscelect[i])
 				continue;
@@ -60,46 +56,57 @@ public class Main_17281_김태훈 {
 	}
 
 	static int solve() {
-		int order = 0, out_count = 0;
-		int score = 0;
-		// order = 타자순서, out_count = 쓰리아웃 체크, score = 점수
-		ArrayDeque<Integer> que = new ArrayDeque<>();
-		// 타자 출루 확인용 큐
-		for (int i = 0; i < N; i++) {
-			out_count = 0;
-			que.clear();
-			while (out_count != 3) {
-				if (ainta[i][numbers[order]] == 1) {
-					que.offer(numbers[order]);
-				} else if (ainta[i][numbers[order]] == 2) {
-					que.offer(numbers[order]);
-					que.offer(numbers[order]);
-				} else if (ainta[i][numbers[order]] == 3) {
-					que.offer(numbers[order]);
-					que.offer(numbers[order]);
-					que.offer(numbers[order]);
-				} else if (ainta[i][numbers[order]] == 4) {
-					que.offer(numbers[order]);
-					que.offer(numbers[order]);
-					que.offer(numbers[order]);
-					que.offer(numbers[order]);
-				} else if (ainta[i][numbers[order]] == 0) {
-					out_count++;
-				}
-				// ====================================
-				// 만약에 돌아서 들어오는 사람 있으면 그 사람 빼고 점수 플러스
+	    int order = 0;
+	    score = 0; // 게임 점수 초기화
 
-				while (que.size() >= 4) {
-					int a = que.poll();
-					while (!que.isEmpty() && a == que.peekFirst()) {
-						que.poll();
-					}
-					score++;
-				}
-				order = (order+1)%9;
-			}
-		}
-		return score;
+	    for (int i = 0; i < N; i++) {
+	        int out_count = 0;
+	        boolean[] base = new boolean[4]; 
+
+	        while (out_count != 3) {
+	            switch (ainta[i][numbers[order]]) {
+	                case 0:
+	                    out_count++;
+	                    break;
+	                case 4:
+	                    score += countRunners(base) + 1;
+	                    base = new boolean[4];
+	                    break;
+	                default:
+	                    moveRunners(base, ainta[i][numbers[order]]);
+	            }
+	            order=(order+1)%9;
+	        }
+	    }
+	    return score;
+	}
+	
+	static void moveRunners(boolean[] base, int hit) {
+	    for(int i=3; i>0; --i){
+	        if(base[i]){
+	            if(i+hit>3){
+	                ++score;
+	            } else{
+	                base[i+hit] = true;
+	            }
+	            base[i] = false;
+	        }
+	    }
+
+	    base[hit] = true; // 현재 타자 위치 반영
+	}
+
+	static int countRunners(boolean[] base) { 
+	   int cnt=0;
+
+	   for(int i=1;i<=3;++i){
+	      if(base[i]){
+	         base[i] = false;
+	         ++cnt;
+	      }
+	   }
+
+	   return cnt;
 	}
 
 	public static void main(String[] args) throws IOException {
