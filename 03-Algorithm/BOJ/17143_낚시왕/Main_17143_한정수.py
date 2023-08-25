@@ -22,6 +22,8 @@ for line in input_list:
 #      위 아래 왼쪽 오른쪽
 # direction = [[], [-1, 0], [1, 0], [0, 1], [0, -1]]
 
+
+# 상어 좌표, 속도, 방향이 주어졌을때 빠르게 다음칸을 찾는 함수
 def get_next_loc(i, j, speed, dir):
 
     if dir == 1 or dir == 2:  # i
