@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 /**
  * https://www.acmicpc.net/problem/1753
  * 
- * @author pj501
+ * @author SSAFY
  *
  */
 public class Main_1753_박정인 {
@@ -33,7 +33,6 @@ public class Main_1753_박정인 {
 	static int V, E, K;
 	static List<Node>[] graph;
 	static int[] d;
-	static boolean[] visited;
 
 	static final int INF = Integer.MAX_VALUE;
 
@@ -48,7 +47,7 @@ public class Main_1753_박정인 {
 
 		graph = new ArrayList[V + 1];
 		d = new int[V + 1];
-		visited = new boolean[V + 1];
+
 		Arrays.fill(d, INF);		
 		
 		for (int i = 1; i <= V; i++) {
@@ -81,10 +80,7 @@ public class Main_1753_박정인 {
 		while (!pq.isEmpty()) {
 			Node now = pq.poll();
 
-			if (visited[now.index])
-				continue;
-			
-			visited[K] = true;
+			if (d[now.index] < now.weight)	continue;						
 
 			for (Node next : graph[now.index]) {
 				int cost = next.weight + d[now.index];
