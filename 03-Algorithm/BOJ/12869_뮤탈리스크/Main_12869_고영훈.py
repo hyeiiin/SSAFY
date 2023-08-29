@@ -3,12 +3,14 @@ from itertools import permutations
 
 def main():
     def f(hps):
+        hps.sort()
         i = sum((60 ** n) * hp for n, hp in enumerate(hps))
         if dp[i] == -1:
-            dp[i] = 0
-            if hps:
-                dp[i] = 1 + min(f([hp - d for hp, d in zip(new_hps, damages) if hp > d])
-                                for new_hps in permutations(hps))
+            if not hps:
+                dp[i] = 0
+            else:
+                dp[i] = 1 + min(f([hp - d for hp, d in zip(hps, ds) if hp > d])
+                                for ds in permutations(damages[:len(hps)]))
         return dp[i]
 
     damages = (9, 3, 1)
