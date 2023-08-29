@@ -1,11 +1,7 @@
 
 class Solution
 {	
-	
-	static BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-	static StringTokenizer tokens; 
-	
-	
+
 	public static void main(String[] args) {
 		int[][] dp = new int[3][7];
 		
@@ -51,11 +47,11 @@ class Solution
 		//최종값 = 길이 6일 때 빨간색으로 칠한 경우 + " 파란색으로 칠한 경우 + " 노란색으로 칠한 경우 
 		int result = 0; 
 		for(int color=0; color<3; color++) {
-			result+= dp[color][6]; 
+			result+= dp[color][4]; 
 		}
 		System.out.println(result);
 		
 		
 		
 	}
-	
+}
