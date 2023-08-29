@@ -8,13 +8,13 @@ public class Main_12869_김수린 {
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	static int N, hp[];
-	static Integer dp[][][];
+	static boolean dp[][][];
 	static List<int[]> type = new ArrayList<>();
 
 	public static void init() throws IOException {
 		N = Integer.parseInt(br.readLine());
 		hp = new int[3];
-		dp = new Integer[61][61][61];
+		dp = new boolean[61][61][61];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
 			hp[i] = Integer.parseInt(st.nextToken());
@@ -46,10 +46,11 @@ public class Main_12869_김수린 {
 
 	public static int bfs(int hp[]) {
 		Queue<int[]> q = new ArrayDeque<>();
+		if(isFin(hp)) return 0;
 		int firstHp[] = hp;
 		q.offer(firstHp);
-		int cnt = 0;
-		dp[firstHp[0]][firstHp[1]][firstHp[2]] = cnt++;
+		int cnt = 1;
+		dp[firstHp[0]][firstHp[1]][firstHp[2]] = true;
 
 		int curHp[] = new int[3];
 		while (!q.isEmpty()) {
@@ -63,8 +64,8 @@ public class Main_12869_김수린 {
 						nextHp[k] = curHp[k] - damage[k] <= 0 ? 0 : curHp[k] - damage[k];
 					}
 					if(isFin(nextHp)) return cnt;
-					if(dp[nextHp[0]][nextHp[1]][nextHp[2]] == null) {
-						dp[nextHp[0]][nextHp[1]][nextHp[2]] = cnt;
+					if(dp[nextHp[0]][nextHp[1]][nextHp[2]] != true) {
+						dp[nextHp[0]][nextHp[1]][nextHp[2]] = true;
 						q.offer(nextHp);
 					}
 				}
