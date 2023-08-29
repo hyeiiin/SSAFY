@@ -1,10 +1,9 @@
-from functools import reduce
 from itertools import permutations
 
 
 def main():
     def f(hps):
-        i = reduce(lambda r, x: r * 60 + x, hps, 0)
+        i = sum((60 ** n) * hp for n, hp in enumerate(hps))
         if dp[i] == -1:
             dp[i] = 0
             if hps:
