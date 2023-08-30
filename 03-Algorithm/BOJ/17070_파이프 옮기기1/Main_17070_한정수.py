@@ -57,7 +57,7 @@ arr = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 # 그냥 dfs도 터짐. bfs나 dfs에 추가적으로 적용해서 시간을 줄여야할듯.
 #     >> python3 로 제출하면 초과나고 pypy3로 제출하면 통과됨.
 #         >> python3는 단순코드, pypy3는 반복이 많은 코드에서 유리하다고함.
-# 방문배열 추가?
+
 answer = 0
 
 def dfs(x, y, z):
