@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class Main {
+class Main_17070_이도훈 {
 
 	// 가로(0) ,세로(1), 대각선(2) ,
 	static int[][][] dirs = {{{1, 0, 0}, {1, 1, 2}}, {{0, 1, 1}, {1, 1, 2}},
