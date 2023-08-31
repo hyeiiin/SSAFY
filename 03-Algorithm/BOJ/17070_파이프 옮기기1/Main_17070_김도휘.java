@@ -31,9 +31,6 @@ public class Main {
     }
 
     public static void movePipe(int x, int y, int shape) {
-//        if (visited[x][y]) {
-//            return;
-//        }
         if (x == N - 1 && y == N - 1) {
             ans++;
             return;
@@ -60,11 +57,7 @@ public class Main {
                 }
 
             }
-
-
         }
-
-
     }
 
     public static boolean isIn(int x, int y) {
@@ -91,15 +84,5 @@ public class Main {
                 return nextPipe;
         }
         return new int[3];
-    }
-}
-
-class Pos {
-    int x, y, shape;
-
-    public Pos(int x, int y, int shape) {
-        this.x = x;
-        this.y = y;
-        this.shape = shape;
     }
 }
