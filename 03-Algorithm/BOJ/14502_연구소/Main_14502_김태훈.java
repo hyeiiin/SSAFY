@@ -89,7 +89,9 @@ public class Main_14502_김태훈 {
 
     private static void copyMap(int[][] copyMap) {
         for (int i = 0; i < N; i++) {
-            System.arraycopy(map[i], 0, copyMap[i], 0, M);
+        	for (int j = 0; j < M; j++) {
+				copyMap[i][j] = map[i][j];
+			}
         }
     }
 
