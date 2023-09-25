@@ -4,11 +4,10 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Main {
+class Main_14502_이도훈 {
 
 	static int[][] dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 	static int[][] map;
-	static boolean[][] visited;
 	static int N;
 	static int M;
 	static int max;
@@ -98,7 +97,6 @@ class Main {
 		int x = idx % M;
 		int y = idx / M;
 
-		visited[y][x] = true;
 
 		if (map[y][x] == 1 || map[y][x] == 2) {
 			dfs(depth, idx + 1);
@@ -111,7 +109,6 @@ class Main {
 			map[y][x] = 0;
 			dfs(depth, idx + 1);
 		}
-		visited[y][x] = false;
 	}
 
 	static class Pos {
