@@ -25,7 +25,6 @@ class Main_14502_이도훈 {
 		M = Integer.parseInt(st.nextToken());
 
 		map = new int[N][M];
-		visited = new boolean[N][M];
 
 		max = Integer.MIN_VALUE;
 		size = M * N;
