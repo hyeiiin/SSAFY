@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 void fastIO() {
-	ios::sync_with_stdio;
+	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 }
@@ -48,7 +48,7 @@ int simul() {
 	return count;
 }
 int main() {
-	freopen("input.txt", "r", stdin);
+	//freopen("input.txt", "r", stdin);
 	fastIO();
 	cin >> n >> m;
 	for (int r = 0; r < n; r++) {
@@ -60,7 +60,7 @@ int main() {
 		}
 	}
 	int ans = 0;
-	for (int i = 0; i < emptyList.size(); i++) {
+	for (int i = 0; i < (int)emptyList.size(); i++) {
 		for (int j = 0; j < i; j++) {
 			for (int k = 0; k < j; k++) {
 				arr[emptyList[i].r][emptyList[i].c] = WALL;
