@@ -21,22 +21,18 @@ public class Solution_2115_김수린 {
 			this.row = row;
 			this.start = start;
 			this.end = end;
-			setMax(0, 0, 0);
+			setMax(0, 0);
 		}
 		
-		public void setMax(int cnt, int sum, int max) {
+		public void setMax(int sum, int max) {
 			if(sum > C) {
-				return;
-			}
-			if(cnt == M) {
-				this.max = Integer.max(max, this.max);
 				return;
 			}
 			this.max = Integer.max(max, this.max);
 			for(int i = start; i < end; i++) {
 				if(!isSelected[i - start]) {
 					isSelected[i - start] = true;
-					setMax(cnt + 1, sum + arr[row][i], max + (int) Math.pow(arr[row][i], 2));
+					setMax(sum + arr[row][i], max + (int) Math.pow(arr[row][i], 2));
 					isSelected[i - start] = false;
 				}
 			}
