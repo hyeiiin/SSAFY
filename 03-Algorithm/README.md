@@ -250,3 +250,10 @@ https://lab.ssafy.com/s10/c04/gwangju04.git
 2. BJ 1194 - 달이차오른다,가자 (Main_1194_이름.java)
 3. SWEA 2115 벌꿀채취 (Solution_2115_이름.java)
 
+-------------
+#### 2023/09/27 algo_day23
+-------------
+
+1. SWEA 1263 D6 사람 네트워크2 (Solution_1263_이름.java)
+2. 백준 9205 - 맥주 마시면서 걸어가기 (Main_9205_이름.java)
+
