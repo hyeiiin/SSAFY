@@ -3,7 +3,7 @@ package sdf;
 import java.util.*;
 import java.io.*;
 
-public class Solution_2115_벌꿀채취 {
+public class Solution_2115_정준원 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int N, M, C;
@@ -37,7 +37,7 @@ public class Solution_2115_벌꿀채취 {
 		int result = 0;
 		int max1 = 0;
 		int max2 = 0;
-		
+
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j <= N - M; j++) {
 				maxnum = 0;
