@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+// 궁금한점 플루이드 사용했을때 n^3 시간복잡도이고 현재 코드도 n^3 시간복잡도를 가지는데 
+// 성능차이가 3배나 느립니다. 이유가 뭘까요.. gpt한테 물어봐도 컴파일러 탓이라고 이상한 소리만 하는데..
 public class Solution_1263_김형민 {
 
     static int ans;
