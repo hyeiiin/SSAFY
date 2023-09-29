@@ -97,9 +97,7 @@ public class Solution_2115_서지원 {
 						result += (arr[i] * arr[i]);
 					}
 				}
-				if (!temp.contains(result)) {
-					temp.offer(result);					
-				}
+				temp.offer(result);					
 			}	
 			return;
 		}
