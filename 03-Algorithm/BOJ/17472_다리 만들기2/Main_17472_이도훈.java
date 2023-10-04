@@ -76,13 +76,16 @@ public class Main_17472_이도훈 {
 			}
 		}
 
+		// 섬의 개수
 		int islandCnt = islands.size();
 
+		// 유니언 파인드를 위한 부모 배열 선언 및 초기화
 		parents = new int[islandCnt];
 		for (int i = 0; i < parents.length; i++) {
 			parents[i] = i;
 		}
 
+		// MST를 위한 우선순위 큐 선언
 		PriorityQueue<Node> pq = new PriorityQueue<>();
 
 		// 마킹한 섬들 돌면서 각 섬까지 닿는지 거리를 배열로 저장
@@ -116,7 +119,7 @@ public class Main_17472_이도훈 {
 
 						dist++;
 
-						// 다른 섬에 도착하면 인접배열에 저장
+						// 다른 섬에 도착하면 우선순위 큐에 간선 정보 저장
 						if (map[my][mx] != '0') {
 							if (dist > 1) {
 								pq.add(new Node(curMark - 'A', map[my][mx] - 'A', dist));
@@ -129,9 +132,7 @@ public class Main_17472_이도훈 {
 
 		}
 
-		// MST 돌리기
-
-		int cnt = 0;
+		// MST 돌리기 (크루스칼)
 		int dist = 0;
 
 		while (!pq.isEmpty()) {
@@ -157,8 +158,6 @@ public class Main_17472_이도훈 {
 		System.out.println(dist);
 
 	}
-
-	// 유니언 파인드 하자
 
 	static void union(int a, int b) {
 		int pa = find(a);
@@ -206,6 +205,5 @@ public class Main_17472_이도훈 {
 			return Integer.compare(dist, o.dist);
 		}
 	}
-
 
 }
