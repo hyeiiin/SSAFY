@@ -36,18 +36,22 @@ public class Main_1786_김태훈 {
         List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < n1; i++) {
-            while(j > 0 && T.charAt(i) != P.charAt(j)) {
-                j = pi[j-1];
-            }
-            
-            if(T.charAt(i) == P.charAt(j)) {
-                if(j == n2-1) {
-                    list.add((i - n2 + 1) + 1);
-                    j = pi[j]; 
-                } else {
-                    j += 1;
-                }
-            }
+        	
+        	if(T.charAt(i) == P.charAt(j)) {
+        		if(j == n2-1) {
+        			list.add((i-n2+1)+1);
+        			j = pi[j];
+        		}
+        		else {
+        			j++;
+        		}
+        	}
+        	else {
+        		if(j != 0) {
+        			j = pi[j-1];
+        			i--;
+        		}
+        	}
         }
 
         sb.append(list.size()).append("\n");
