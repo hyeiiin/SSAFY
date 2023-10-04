@@ -6,7 +6,7 @@ import java.util.*;
 // 과정 1. 섬 영역 나누기 (BFS)
 // 과정 2. 다리 연결하는 경우 뽑기 (BFS)
 // 과정 3. 가장 짧은 다리로 섬 잇기 (크루스칼)
-public class Main_17472_김수린 {
+public class BOJ17472 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st = null;
 	static boolean visited[][];
@@ -26,7 +26,7 @@ public class Main_17472_김수린 {
 		}
 	}
 	
-	// Union-Find, 최소스패닝트리(크루스)을 위한 Node
+	// Union-Find, 최소스패닝트리(크루스칼)을 위한 Node
 	static class Node implements Comparable<Node> {
 		int to;
 		int from;
@@ -206,9 +206,9 @@ public class Main_17472_김수린 {
 		}
 		
 		// 위의 과정을 통해 union을 다 했다면 모두 같은 곳을 바라보고 있을 것이다.
-		int base = find(0);	// 첫번째가 바라보고 있는 곳
+		int num = find(0);	// 첫번째가 바라보고 있는 곳
 		for (int i = 1; i < parents.length; i++) {
-			if (base != find(i)) {	// 하지만, 바라보는 곳이 다른 게 있다면 연결되지 않은 섬이 있다는 뜻!
+			if (num != find(i)) {	// 하지만, 바라보는 곳이 다른 게 있다면 연결되지 않은 섬이 있다는 뜻!
 				// 모든 섬 연결 불가능 경우로 판정.
 				return -1;
 			}
