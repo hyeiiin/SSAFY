@@ -5,13 +5,11 @@ import java.io.InputStreamReader;
 public class Main_1786_이도훈 {
 
 
-	public static void main(String[] args) throws IOException {
+		public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 
 		String T = br.readLine();
 		String P = br.readLine();
-
 
 		// 실패 함수 구하기
 		int[] failureFunc = failureFunc(P);
@@ -28,6 +26,12 @@ public class Main_1786_이도훈 {
 			if (T.charAt(i) == P.charAt(j)) {
 				i++;
 				j++;
+			} else {
+				if (j != 0) {
+					j = failureFunc[j - 1];
+				} else {
+					i++;
+				}
 			}
 
 			// 끝까지 도달했다면
@@ -35,12 +39,6 @@ public class Main_1786_이도훈 {
 				cnt++;
 				sb.append(i - j + 1).append(" ");
 				j = failureFunc[j - 1];
-			} else if(i < T.length() && T.charAt(i) != P.charAt(j)){
-				if (j != 0) {
-					j = failureFunc[j - 1];
-				} else {
-					i++;
-				}
 			}
 		}
 
@@ -78,9 +76,4 @@ public class Main_1786_이도훈 {
 
 		return failureFunc;
 	}
-
-
-
-
-
 }
