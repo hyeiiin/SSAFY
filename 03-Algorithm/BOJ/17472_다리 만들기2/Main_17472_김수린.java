@@ -32,10 +32,10 @@ public class Main_17472_김수린 {
 		int from;
 		int dist;
 		
-		public Node(int to, int from, int value) {
+		public Node(int to, int from, int dist) {
 			this.to = to;
 			this.from = from;
-			this.dist = value;
+			this.dist = dist;
 		}
 
 		@Override
