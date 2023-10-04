@@ -5,10 +5,8 @@ P = input().rstrip()
 # 'P'라는 패턴 안의 패턴이 존재하는지 찾아보는 것. 패턴 안의 패턴(규칙/반복)을 찾기.
 # 그 과정의 결과가 부분일치 테이블 배열.
 
-S = P
-i = 1
+
 j = 0
-cnt = 1
 # 부분일치 테이블 배열 생성
 pi = [0 for _ in range(len(P))]
 
@@ -25,7 +23,7 @@ for i in range(1, len(P)):
 
 # print(pi)
 # 부분일치 테이블 배열을 이용해 문자열 매칭
-i = 0
+
 j = 0
 result = []
 result_cnt = 0
