@@ -6,7 +6,7 @@ import java.util.*;
 // 과정 1. 섬 영역 나누기 (BFS)
 // 과정 2. 다리 연결하는 경우 뽑기 (BFS)
 // 과정 3. 가장 짧은 다리로 섬 잇기 (크루스칼)
-public class BOJ17472 {
+public class Main_17472_김수린 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st = null;
 	static boolean visited[][];
