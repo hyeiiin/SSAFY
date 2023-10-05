@@ -1,5 +1,3 @@
-import org.omg.CORBA.CharSeqHelper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -63,8 +61,8 @@ public class Main {
                 int ny = now.y + dy[i];
 
                 if (nx >= 0 && nx < N && ny >= 0 && ny < N) {
-                    if (mdddoneyArr[nx][ny] > moneyArr[now.x][now.y] + map[nx][ny]) {
-                        modddneyArr[nx][ny] = moneyArr[now.x][now.y] + map[nx][ny];
+                    if (moneyArr[nx][ny] > moneyArr[now.x][now.y] + map[nx][ny]) {
+                        moneyArr[nx][ny] = moneyArr[now.x][now.y] + map[nx][ny];
                         queue.add(new Pos(nx, ny, now.money + map[nx][ny]));
                     }
                 }
