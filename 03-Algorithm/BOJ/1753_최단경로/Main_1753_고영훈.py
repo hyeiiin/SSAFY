@@ -1,32 +1,28 @@
 from heapq import heappop, heappush
-from sys import stdin
+from sys import stdin, stdout
 
 
 def main():
-    input = stdin.readline
-    INF = 156250
-
-    def dijkstra():
-        q = [(mat[0][0], 0, 0)]
-        loss_mat = [[INF] * N for _ in range(N)]
-        while q:
-            loss, y, x = heappop(q)
-            if loss > loss_mat[y][x]:
+    def dijkstra(start):
+        dists[start] = 0
+        pq = [(0, start)]
+        while pq:
+            d, u = heappop(pq)
+            if d > dists[u]:
                 continue
-            for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-                ny, nx = y + dy, x + dx
-                if 0 <= ny < N and 0 <= nx < N:
-                    new_loss = loss + mat[ny][nx]
-                    if new_loss < loss_mat[ny][nx]:
-                        loss_mat[ny][nx] = new_loss
-                        heappush(q, (new_loss, ny, nx))
-        return loss_mat[N - 1][N - 1]
+            for v, w in adj_list[u]:
+                nd = d + w
+                if nd < dists[v]:
+                    dists[v] = nd
+                    heappush(pq, (nd, v))
 
-    problem = 0
-    while N := int(input()):
-        problem += 1
-        mat = [list(map(int, input()[::2])) for _ in range(N)]
-        print(f'Problem {problem}: {dijkstra()}')
+    V = int(stdin.buffer.readline().split()[0])
+    K = int(stdin.buffer.readline())
+    adj_list = [[] for _ in range(V + 1)]
+    for line in stdin.buffer.read().splitlines():
+        u, v, w = map(int, line.split())
+        adj_list[u].append((v, w))
 
-
-main()
+    INF = 1_000_000
+    dists = [INF] * (V + 1)
+    dijkstra(K)
