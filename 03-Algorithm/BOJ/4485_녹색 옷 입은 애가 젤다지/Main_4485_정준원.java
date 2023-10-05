@@ -8,8 +8,7 @@ public class Main_4485_정준원 {
 
 	static int[][] dp;
 	static int[][] arr;
-	static boolean[][] visit;
-	static int[] dx = { 1, -1, 0, 0 };
+ 	static int[] dx = { 1, -1, 0, 0 };
 	static int[] dy = { 0, 0, 1, -1 };
 
 	public static void main(String[] args) throws IOException {
@@ -37,8 +36,7 @@ public class Main_4485_정준원 {
 			}
 
 			dp[0][0] = arr[0][0];
-			visit = new boolean[n][n];
-
+ 
 			int res = solve(n, dp);
 
 			cnt++;
