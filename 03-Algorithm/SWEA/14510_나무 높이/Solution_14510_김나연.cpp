@@ -38,12 +38,13 @@ int main() {
 		}
 
 		res = (diff / 3) * 2;
-		res = res + diff % 3;
+		res = res + diff % 3; // 나머지 날짜 더해주기
 
-		int temp = res / 2 + res % 2;
-
-		if (temp < odd) {
-			if (res % 2 == 0) res -= 1;
+		// (차이가 홀수인 나무 개수 < res의 홀수 일수) 이면 날짜 더 세어줘야함
+		// ex) 4 3 3 3 3 => 7일 
+		int temp = res / 2 + res % 2; // res의 홀수 날 일수
+		if (temp < odd) { 
+			if (res % 2 == 0) res -= 1; // 끝난 날이 짝수 날이면 -1 (짝수 날: 0, 홀수 날:1 반복하기 위해)
 			res = res + (odd - temp) * 2;
 		}
 
