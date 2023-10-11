@@ -17,8 +17,7 @@ public class Solution_8382_고영훈 {
 		final int min = Math.min(xDist, yDist);
 		final int max = Math.max(xDist, yDist);
 
-		final int diff = max - min;
-		final int count = max * 2 - (diff & 1);
+		final int count = max * 2 - (max - min & 1);
 		return count;
 	}
 
