@@ -12,21 +12,14 @@ public class Solution_8382_고영훈 {
 		final int x2 = Integer.parseInt(st.nextToken());
 		final int y2 = Integer.parseInt(st.nextToken());
 
-		int xDist = Math.abs(x1 - x2);
-		int yDist = Math.abs(y1 - y2);
-		int count = 0;
-		while (xDist != 0 && yDist != 0) {
-			count += 2;
-			xDist--;
-			yDist--;
-		}
+		final int xDist = Math.abs(x1 - x2);
+		final int yDist = Math.abs(y1 - y2);
+		final int min = Math.min(xDist, yDist);
+		final int max = Math.max(xDist, yDist);
 
-		int dist = Math.max(xDist, yDist);
-		while (dist > 1) {
-			count += 4;
-			dist -= 2;
-		}
-		return count + dist;
+		final int diff = max - min;
+		final int count = max * 2 - (diff & 1);
+		return count;
 	}
 
 	public static void main(String[] args) throws Exception {
